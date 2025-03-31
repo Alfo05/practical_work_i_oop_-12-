@@ -7,3 +7,5 @@
 Created the repo in Github 
 
 Changed the name of the repo to practical_work_i_oop_-6-
+
+Added the files for the programs to the repo. 
