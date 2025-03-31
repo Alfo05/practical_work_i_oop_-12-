@@ -1,0 +1,15 @@
+C:\Users\danie\Downloads\REPO\practical_work_i_oop_-6-\bin\Debug\net8.0\practical_work_i_oop_-6-.exe
+C:\Users\danie\Downloads\REPO\practical_work_i_oop_-6-\bin\Debug\net8.0\practical_work_i_oop_-6-.deps.json
+C:\Users\danie\Downloads\REPO\practical_work_i_oop_-6-\bin\Debug\net8.0\practical_work_i_oop_-6-.runtimeconfig.json
+C:\Users\danie\Downloads\REPO\practical_work_i_oop_-6-\bin\Debug\net8.0\practical_work_i_oop_-6-.dll
+C:\Users\danie\Downloads\REPO\practical_work_i_oop_-6-\bin\Debug\net8.0\practical_work_i_oop_-6-.pdb
+C:\Users\danie\Downloads\REPO\practical_work_i_oop_-6-\obj\Debug\net8.0\practical_work_i_oop_-6-.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\danie\Downloads\REPO\practical_work_i_oop_-6-\obj\Debug\net8.0\practical_work_i_oop_-6-.AssemblyInfoInputs.cache
+C:\Users\danie\Downloads\REPO\practical_work_i_oop_-6-\obj\Debug\net8.0\practical_work_i_oop_-6-.AssemblyInfo.cs
+C:\Users\danie\Downloads\REPO\practical_work_i_oop_-6-\obj\Debug\net8.0\practical_work_i_oop_-6-.csproj.CoreCompileInputs.cache
+C:\Users\danie\Downloads\REPO\practical_work_i_oop_-6-\obj\Debug\net8.0\practical_work_i_oop_-6-.sourcelink.json
+C:\Users\danie\Downloads\REPO\practical_work_i_oop_-6-\obj\Debug\net8.0\practical_work_i_oop_-6-.dll
+C:\Users\danie\Downloads\REPO\practical_work_i_oop_-6-\obj\Debug\net8.0\refint\practical_work_i_oop_-6-.dll
+C:\Users\danie\Downloads\REPO\practical_work_i_oop_-6-\obj\Debug\net8.0\practical_work_i_oop_-6-.pdb
+C:\Users\danie\Downloads\REPO\practical_work_i_oop_-6-\obj\Debug\net8.0\practical_work_i_oop_-6-.genruntimeconfig.cache
+C:\Users\danie\Downloads\REPO\practical_work_i_oop_-6-\obj\Debug\net8.0\ref\practical_work_i_oop_-6-.dll
