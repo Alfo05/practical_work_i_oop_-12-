@@ -1,7 +1,7 @@
 using System;
 namespace OOP
 {
-    public class Aircraft
+    public abstract class Aircraft
     {
         
        
