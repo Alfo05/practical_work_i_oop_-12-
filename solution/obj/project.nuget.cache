@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "LjxK4DTmYOE=",
+  "dgSpecHash": "pzWPU51HOhQ=",
   "success": true,
-  "projectFilePath": "C:\\Users\\danie\\Downloads\\REPO\\practical_work_i_oop_-6-\\solution\\practical_work_i_oop_-6-.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\moric\\practical_work_i_oop_-6--1\\solution\\practical_work_i_oop_-6-.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\moric\\.nuget\\packages\\microsoft.netcore.app.ref\\8.0.12\\microsoft.netcore.app.ref.8.0.12.nupkg.sha512",
+    "C:\\Users\\moric\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\8.0.12\\microsoft.windowsdesktop.app.ref.8.0.12.nupkg.sha512",
+    "C:\\Users\\moric\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\8.0.12\\microsoft.aspnetcore.app.ref.8.0.12.nupkg.sha512",
+    "C:\\Users\\moric\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\8.0.12\\microsoft.netcore.app.host.win-x64.8.0.12.nupkg.sha512"
+  ],
   "logs": []
 }

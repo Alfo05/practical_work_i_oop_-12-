@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\danie\\Downloads\\REPO\\practical_work_i_oop_-6-\\solution\\practical_work_i_oop_-6-.csproj": {}
+    "C:\\Users\\moric\\practical_work_i_oop_-6--1\\solution\\practical_work_i_oop_-6-.csproj": {}
   },
   "projects": {
-    "C:\\Users\\danie\\Downloads\\REPO\\practical_work_i_oop_-6-\\solution\\practical_work_i_oop_-6-.csproj": {
+    "C:\\Users\\moric\\practical_work_i_oop_-6--1\\solution\\practical_work_i_oop_-6-.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\danie\\Downloads\\REPO\\practical_work_i_oop_-6-\\solution\\practical_work_i_oop_-6-.csproj",
+        "projectUniqueName": "C:\\Users\\moric\\practical_work_i_oop_-6--1\\solution\\practical_work_i_oop_-6-.csproj",
         "projectName": "practical_work_i_oop_-6-",
-        "projectPath": "C:\\Users\\danie\\Downloads\\REPO\\practical_work_i_oop_-6-\\solution\\practical_work_i_oop_-6-.csproj",
-        "packagesPath": "C:\\Users\\danie\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\danie\\Downloads\\REPO\\practical_work_i_oop_-6-\\solution\\obj\\",
+        "projectPath": "C:\\Users\\moric\\practical_work_i_oop_-6--1\\solution\\practical_work_i_oop_-6-.csproj",
+        "packagesPath": "C:\\Users\\moric\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\moric\\practical_work_i_oop_-6--1\\solution\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\danie\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\moric\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -37,7 +39,8 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net8.0": {
@@ -53,12 +56,30 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.12, 8.0.12]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[8.0.12, 8.0.12]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.12, 8.0.12]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[8.0.12, 8.0.12]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.406/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
