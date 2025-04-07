@@ -5,7 +5,7 @@ namespace OOP
 
     public class CargoAirplane : Aircraft 
     {
-        public double max_load = 0; 
+        public double max_load = 0; // In TONS (1000KG)
         public CargoAirplane(string id, AircraftState state, int distance, int speed, double fuelCapacity, double fuelConsumption, double currentFuel, double max_load) 
         : base(id, state, distance, speed ,fuelCapacity, fuelConsumption, currentFuel)
         {
