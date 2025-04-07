@@ -18,6 +18,21 @@ namespace OOP
         CurrentAircraft = null;
         TicksToFree = 0;
     }
+    public void LandingAircraft(Aircraft aircraft)
+    {
+        if (IsFree)
+        {
+            CurrentAircraft = aircraft;
+            IsFree = false;
+            TicksToFree = 0;
+            Console.WriteLine($"Aircraft {aircraft.Id} is landing on Runway {Id}");
+
+        }
+        else 
+        {
+            Console.WriteLine($"{Id} is not free");
+        }
+    }
 
     }
 
