@@ -4,7 +4,7 @@ namespace OOP
 {
     public class PrivateAirplane : Aircraft 
     {
-        public string owner = ""; 
+        public string owner = ""; // Full name of the owner in a string
 
         public PrivateAirplane(string id, AircraftState state, int distance, int speed, double fuelCapacity, double fuelConsumption, double currentFuel, string owner) 
         : base(id, state, distance, speed ,fuelCapacity, fuelConsumption, currentFuel)

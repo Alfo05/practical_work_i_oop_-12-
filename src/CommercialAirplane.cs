@@ -4,7 +4,7 @@ namespace OOP
 {
     public class CommercialAirplane : Aircraft 
     {
-        public int num_passangers = 0; 
+        public int num_passangers = 0; // In unit of passengers, each passanger counts as one
 
         public CommercialAirplane(string id, AircraftState state, int distance, int speed, double fuelCapacity, double fuelConsumption, double currentFuel, int num_passangers) 
         : base(id, state, distance, speed ,fuelCapacity, fuelConsumption, currentFuel)

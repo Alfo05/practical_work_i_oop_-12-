@@ -6,7 +6,9 @@ namespace OOP
     {
         public static void Main()
         {
-            Console.WriteLine("Hello World"); 
+            
+            // PRINT THE MANAGEMENT MENU 
+            
         }
     }
 }
