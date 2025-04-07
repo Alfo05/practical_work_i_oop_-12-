@@ -31,6 +31,7 @@ namespace OOP
             CurrentAircraft = aircraft;
             IsFree = false;
             TicksToFree = 0;
+            aircraft.AircraftState = AircraftState.Landing;
             Console.WriteLine($"Aircraft {aircraft.Id} is landing on Runway {Id}");
 
         }
