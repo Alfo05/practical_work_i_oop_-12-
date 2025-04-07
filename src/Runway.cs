@@ -26,10 +26,10 @@ namespace OOP
     }
     public void LandingAircraft(Aircraft aircraft)
     {
-        if (IsFree)
+        if (runwayStatus == RunwayStatus.Free)
         {
             CurrentAircraft = aircraft;
-            IsFree = false;
+            runwayStatus = RunwayStatus.Ocupied;
             TicksToFree = 0;
             aircraft.AircraftState = AircraftState.Landing;
             Console.WriteLine($"Aircraft {aircraft.Id} is landing on Runway {Id}");
