@@ -22,3 +22,12 @@ Moved README.md file to repo folder.
 
 Added example of .csv file in solution folder.
 
+### 07/04/2025 ### 
+
+Added the files for the classes Aircraft, Airport and Runway. 
+
+Deleted temporary .txt file in the files folder 
+
+Renamed solution file to scr file 
+
+Added the .gitignore file in the files folder
