@@ -6,36 +6,35 @@ namespace OOP
     
     public class Aircraft
     {
-        // Define attributes of Aircraft class 
-        private string id = ""; 
-
-        private int distance = 0; 
-
-        private int speed = 0; 
-
-        private double fuel_capacity = 0; 
-
-        private double fuel_consumption = 0; 
+        public string Id { get; set; }
+        public AircraftState State { get; set; }
+        public int Distance { get; set; }
+        public int Speed { get; set; }
+        public double FuelCapacity { get; set; }
+        public double FuelConsumption { get; set; }
+        public double CurrentFuel { get; set; }
 
         public enum AircraftState
         {
-        InFlight,
-        Waiting,
-        Landing,
-        OnGround
-        }         
-        public AircraftState State { get; set; }
-        public Aircraft(string id, int distance, int speed, double fuel_capacity, double fuel_consumption, AircraftState state)
-        {
-            this.id = id; 
-            this.distance = distance; 
-            this.speed = speed; 
-            this.fuel_capacity = fuel_capacity; 
-            this.fuel_consumption = fuel_consumption; 
-            State = state; 
-            
-
+            InFlight,
+            Waiting,
+            Landing,
+            OnGround
         }
-       
+
+        // Constructor
+        public Aircraft(string id, AircraftState state, int distance, int speed, double fuelCapacity, double fuelConsumption, double currentFuel)
+        {
+            Id = id;
+            State = state;
+            Distance = distance;
+            Speed = speed;
+            FuelCapacity = fuelCapacity;
+            FuelConsumption = fuelConsumption;
+            CurrentFuel = currentFuel;
+        }
+
+
     }
+       
 }
