@@ -2,19 +2,21 @@ using System;
 namespace OOP
 {
     public class Airport
+{
+    private Runway[] runways;  // Array de pistas
+    private Aircraft[] aircrafts;  // Array de aviones
+
+    public Airport(int numberOfRunways, int numberOfAircrafts)
     {
-        // Array for runways the airport has 
-        private Runway[] runways;
+        runways = new Runway[numberOfRunways];
+        aircrafts = new Aircraft[numberOfAircrafts];
 
-        // List of aircrafts in the Airport or bound for the Airport 
-        private List<Aircraft> aircrafts;
-
-        public Airport() 
+        // Inicializamos las pistas
+        for (int i = 0; i < numberOfRunways; i++)
         {
-            runways = new Runway[1]; // We create 2 runways  
-
-            aircrafts = new List<Aircraft>(); // We start to load the airplanes  
+            runways[i] = new Runway($"Runway-{i + 1}");
         }
+    }
 
 
     }
