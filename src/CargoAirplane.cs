@@ -16,7 +16,7 @@ namespace OOP
             this.fuelCapacity = fuelCapacity; 
             this.fuelConsumption = fuelConsumption; 
             this.currentFuel = currentFuel; 
-            this.max_load = max_load = 0; 
+            this.max_load = max_load; 
 
         }
 
