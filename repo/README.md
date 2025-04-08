@@ -37,3 +37,18 @@ Added the remaining class files.
 Added attributes to clases.
 
 Added comments to the classes.
+
+Added menu to Program class.
+
+Added the State to the Runway class.
+
+Corrected mistakes in the Runway class. 
+
+### 08/04/2025 ### 
+
+Changed the menu to the Airport class. 
+
+Created the instantation for the Airport 
+
+Made changes in the behaviours in the Runway class, (Commit shows as a typo). 
+
