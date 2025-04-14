@@ -30,9 +30,10 @@ namespace OOP
             {
             
                 runwayStatus = RunwayStatus.Ocupied; // The runway is in use by the plane which is landing 
-                CurrentAircraft.State = Aircraft.AircraftState.Landing; // We assing the plane as landing 
+                CurrentAircraft = aircraft; // We assing the plane as landing 
+                TicksToFree = 3; // Reset the counter of ticks
                 Console.WriteLine($"Aircraft {aircraft.id} is landing on Runway {id}"); // We show the info 
-
+                aircraft.State = Aircraft.AircraftState.Landing; // We change the status of the plane to landing
             }
             else 
             {
@@ -60,7 +61,10 @@ namespace OOP
             {
                 return $"{id}: Runway is ocupied by Aircraft {CurrentAircraft.id}, {TicksToFree} remaining";
             }
-}   
+        }   
+
+
+
 
 
     }
