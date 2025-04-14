@@ -60,11 +60,16 @@ namespace OOP
                 {
                     // Code for loading flights from the file 
                     Console.WriteLine("Load flights from file");
+
+                    LoadAircraftFromFile(); // Calls the method to load aircrafts from file 
                 }
                 else if (selection == 2)
                 {
                     // Code for loading flights manually
                     Console.WriteLine("Load flights manually"); 
+                    
+                   
+
                 }
                 else if (selection == 3)
                 {
@@ -103,6 +108,31 @@ namespace OOP
                 Console.WriteLine("Input can't be null. "); 
                 PrintMenu(); 
             }    
+            
+        }
+
+
+        public void LoadAircraftFromFile()
+        {
+
+            try 
+            {
+                string file_path = "flights_info.csv"; // Path for the file where airplanes will be stored 
+
+            }
+            catch (FileNotFoundException)
+            {
+                // Returns a message stating that the file with the specified path was not found
+                Console.WriteLine("File was not found please try again, or check system code, you will be returned to the main menu");
+                PrintMenu(); // Returns to the menu
+
+            }
+            catch (Exception e0)
+            {
+                // Shows the error message to the user, of the error that has been found
+                Console.WriteLine($"An error was found: {e0.Message}, you will be returned to the main menu");
+                PrintMenu(); // Returns to the menu
+            }
         }
     }
 }
