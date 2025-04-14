@@ -64,6 +64,21 @@ Updated name of project.
 
 Updated the link in the text-file so it includes the new name. 
 
+### 14/04/2025 ### 
+
+Deleting the Array of Aircrafts and adding a List instead to promote organization. 
+
+Added the loading aircrafts from file method to the menu and also started working on the method itself. 
+
+Finished the method to add new airplanes from a file in the program. 
+
+Added the GetStatus method to Runway class. 
+
+Fixed the LandingAircraft Method in the Runway class. 
+
+Added the ShowStatus method in the Airport class. 
+
+Fixed the ReleaseRunway Method in the Runway class. 
 
 
 
