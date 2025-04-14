@@ -119,12 +119,75 @@ namespace OOP
             {
                 string file_path = "flights_info.csv"; // Path for the file where airplanes will be stored 
 
+                // Opens the file with streamreader 
+                using (StreamReader sr = new StreamReader(file_path))
+                {
+
+                    string line;
+
+                    string separator = ",";
+
+                    // Reads the file per line until it is blank
+                    while ((line = sr.ReadLine()) != null)
+                    {
+                        // Separates the file contents into fields to it can be organized easily
+                        string[] fields = line.Split(separator);
+
+
+                        // We assign airplane data 
+                        string id = fields[0]; // Airplane ID 
+                        Aircraft.AircraftState state = Enum.Parse<Aircraft.AircraftState>(fields[1]); // State of the airplane
+                        int distance = int.Parse(fields[2]); // Distance
+                        int speed = int.Parse(fields[3]); // Speed
+                        string type = fields[5]; // Type of airplane 
+                        double fuelCapacity = double.Parse(fields[5]); // Total fuel capacity
+                        double fuelConsumption = double.Parse(fields[6]); // Fuel Comsumption per Km 
+                        double currentFuel = double.Parse(fields[7]); // Current fuel remaining 
+
+                        // We instantiate a specific object depening on the type of aircraft 
+                        if (type == "Commercial")
+                        {
+                            int passengers = int.Parse(fields[8]); // Passenger Capacity
+                            // Instantation of new Commercial Airplane 
+                            aircrafts.Add(new CommercialAirplane(id, state, distance, speed, fuelCapacity, fuelConsumption, currentFuel, passengers)); 
+                        }
+                        else if (type == "Cargo") // If the airplane is 
+                        {
+                            double maxLoad = double.Parse(fields[8]); // Max cargo load
+                            // Instantation of new Cargo Airplane 
+                            aircrafts.Add(new CargoAirplane(id, state, distance, speed, fuelCapacity, fuelConsumption, currentFuel, maxLoad));
+                        }
+                        else if (type == "Private") // If the airplane is private
+                        {
+                            string owner = fields[8]; // Owner of the private plane (a new variable with full name could be added)
+
+                            // Instantation of new Private Airplane 
+                            aircrafts.Add(new PrivateAirplane(id, state, distance, speed, fuelCapacity, fuelConsumption, currentFuel, owner));
+                        }
+                        else // If the type of airplane is not found
+                        {
+                            // Message showing to the user that the airplane type was not found
+                            Console.WriteLine("Type of airplane could not be identified, you will be returned to the main menu"); 
+                            PrintMenu(); // Returns the user to the main menu
+
+                        }
+
+                    }
+                }
+
             }
             catch (FileNotFoundException)
             {
                 // Returns a message stating that the file with the specified path was not found
-                Console.WriteLine("File was not found please try again, or check system code, you will be returned to the main menu");
-                PrintMenu(); // Returns to the menu
+                Console.WriteLine("File was not found, please try again, or check system code, you will be returned to the main menu");
+                PrintMenu(); // Returns to the main menu 
+
+            }
+            catch (FormatException)
+            {
+                // Returns a message stating that there is an error in the Format of the variables
+                Console.WriteLine("A format error has been found, please try again, or check the system code, you will be returned to the main menu ");
+                PrintMenu(); // Returns to the main menu
 
             }
             catch (Exception e0)
