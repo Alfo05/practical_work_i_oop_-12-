@@ -5,12 +5,15 @@ namespace OOP
     public class Airport
     {
         private Runway[] runways;  // Runways array
-        private Aircraft[] aircrafts;  // Aircrafts array
+        private List<Aircraft> aircrafts; // Aircrafts lists 
+
+
 
         public Airport(int numberOfRunways, int numberOfAircrafts)
         {
             runways = new Runway[numberOfRunways]; // Creation of arrays specific for the amount of runways 
-            aircrafts = new Aircraft[numberOfAircrafts]; // Creation of arrays for specific amount of airplanes
+            aircrafts = new List<Aircraft>(); // Creation of lists for the Airplanes 
+
 
             // Initialization of runways
             for (int i = 0; i < numberOfRunways; i++)
