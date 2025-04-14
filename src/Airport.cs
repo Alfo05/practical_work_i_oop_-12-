@@ -197,5 +197,27 @@ namespace OOP
                 PrintMenu(); // Returns to the menu
             }
         }
+
+        public void ShowStatus()
+    {
+        // Mostrar estado de las pistas
+        Console.WriteLine("\n========== RUNWAY STATUS ==========");
+        foreach (var runway in runways)
+        {
+            Console.WriteLine(runway.GetStatus());
+        }
+
+        // Mostrar estado de los aviones
+        Console.WriteLine("\n========== AIRPLANES STATUS ==========");
+        foreach (var aircraft in aircrafts)
+        {
+            Console.WriteLine($"ID: {aircraft.id} | Estado: {aircraft.State} | Distancia: {aircraft.distance} km | Combustible: {aircraft.currentFuel} L");
+        }
+
+        Console.WriteLine("============================================\n");
+}
+
+
+
     }
 }
