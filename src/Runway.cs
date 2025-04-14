@@ -43,10 +43,18 @@ namespace OOP
 
         public void ReleaseRunway()
         {
-            CurrentAircraft.State = Aircraft.AircraftState.OnGround; // We assign the plane as OnGroud 
-            runwayStatus = RunwayStatus.Free; // We assign that the runway can now be used 
-            Console.WriteLine($"Runway {id} is now clear"); // We tell that the runway is now clear
 
+            if (CurrentAircraft != null)
+            {
+                CurrentAircraft.State = Aircraft.AircraftState.OnGround; // We assign the plane as OnGroud 
+                 
+                Console.WriteLine($"Airplane {CurrentAircraft.id} has landed successfully"); // We show that the plane has landed
+
+                CurrentAircraft = null; 
+            }
+
+            runwayStatus = RunwayStatus.Free; // We now put the runway as free
+            TicksToFree = 0; // The tick counter has gone to 0
 
         }
 
