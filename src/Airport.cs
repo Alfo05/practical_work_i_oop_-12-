@@ -199,23 +199,97 @@ namespace OOP
         }
 
         public void ShowStatus()
-    {
-        // Mostrar estado de las pistas
-        Console.WriteLine("\n========== RUNWAY STATUS ==========");
-        foreach (var runway in runways)
         {
-            Console.WriteLine(runway.GetStatus());
+            // Shows the status of the Runways 
+            Console.WriteLine("\n========== RUNWAY STATUS ==========");
+            foreach (var runway in runways)
+            {
+                Console.WriteLine(runway.GetStatus());
+            }
+
+            // Shows the status of the Airplanes
+            Console.WriteLine("\n========== AIRPLANES STATUS ==========");
+            foreach (var aircraft in aircrafts)
+            {
+                Console.WriteLine($"ID: {aircraft.id} | Estado: {aircraft.State} | Distancia: {aircraft.distance} km | Combustible: {aircraft.currentFuel} L");
+            }
+
+            Console.WriteLine("============================================\n");
         }
 
-        // Mostrar estado de los aviones
-        Console.WriteLine("\n========== AIRPLANES STATUS ==========");
-        foreach (var aircraft in aircrafts)
+
+
+
+        
+        public void AdvanceTick()
         {
-            Console.WriteLine($"ID: {aircraft.id} | Estado: {aircraft.State} | Distancia: {aircraft.distance} km | Combustible: {aircraft.currentFuel} L");
+            double tickHours = 0.25; // Every tick represents 15 minutes 
+
+            Console.WriteLine("\n========== ADVANCED SIMULATION ==========");
+
+            foreach (var aircraft in aircrafts) // For every airplane loaded
+            {
+                if (aircraft.State == Aircraft.AircraftState.InFlight) // If there are airplanes in the air 
+                {
+                    double distanceTravelled = aircraft.speed * tickHours; // Calculates the distance travelled 
+                    double fuelUsed = distanceTravelled * aircraft.fuelConsumption; // Calculates the fuel used 
+
+                    aircraft.currentFuel = Math.Max(0, aircraft.currentFuel - fuelUsed); // Substracts the current fuel
+                    aircraft.distance = Math.Max(0, aircraft.distance - (int)distanceTravelled); // Substracts the distance 
+
+                    Console.WriteLine($" Flight: {aircraft.id} - In-Flight | Distance: {aircraft.distance} km | Fuel Remaining: {aircraft.currentFuel:F2} Liters");
+
+                    if (aircraft.distance == 0) // If the plane has reached the airport 
+                    {
+                        aircraft.State = Aircraft.AircraftState.Waiting; // Changes the state of the airplane to waiting 
+                        Console.WriteLine($"Flight {aircraft.id} reached the airport and is requesting a runway"); 
+                    
+                    }
+                }   
+
+            }
+
+            foreach (var aircraft in aircrafts) // Again loads all of the airplanes 
+            {
+                if (aircraft.State == Aircraft.AircraftState.Waiting)
+                {
+                    bool assinged = false; // Indication of the airplane being assigned a runway
+
+                    foreach (var runway in runways)
+                    {
+                        // If has not being assigned and runway is free 
+                        if (!assinged && runway.runwayStatus == Runway.RunwayStatus.Free)
+                        {
+                            runway.LandingAircraft(aircraft); // We assign a runway to the airplane
+                            assinged = true; // We should mark it as assigned to continue
+                        }
+                    }
+                    
+                    // If no runways are available 
+                    if (!assinged)
+                    {
+                        Console.WriteLine($"Flight {aircraft.id} is still waiting due to no runways being available" ); 
+                    }
+                }
+            }
+
+            foreach (var runway in runways)
+            {
+                // ADD runway.AdvanceTick(); 
+            }
+
+            ShowStatus(); 
+
+            Console.WriteLine("Press anything to make another tick or type 'menu' to go back to the menu"); 
+
+            string input = Console.ReadLine(); 
+            if (input.ToLower() == "menu")
+            {
+                PrintMenu(); 
+            }
+            
         }
 
-        Console.WriteLine("============================================\n");
-}
 
 
 
