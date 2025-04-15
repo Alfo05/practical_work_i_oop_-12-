@@ -1,5 +1,8 @@
 using System;
+using System.ComponentModel;
 using System.ComponentModel.Design;
+using System.Linq.Expressions;
+using System.Runtime.CompilerServices;
 namespace OOP
 {
     public class Airport
@@ -111,6 +114,109 @@ namespace OOP
             
         }
 
+        public void LoadAircraftManually(int option)
+        {
+            
+
+            try 
+            {
+                
+                Console.Write("Airplane ID: ");
+                string id = Console.ReadLine();
+
+                Console.Write("Select a State (InFlight, Waiting, Landing, OnGround): ");
+                Aircraft.AircraftState state = Enum.Parse<Aircraft.AircraftState>(Console.ReadLine());
+
+                Console.Write("Distance to the airport (km): ");
+                int distance = int.Parse(Console.ReadLine());
+
+                Console.Write("Speed of the airplane (km/h): ");
+                int speed = int.Parse(Console.ReadLine());
+
+                Console.Write("Fuel Capacity (Liters): ");
+                double fuelCapacity = double.Parse(Console.ReadLine());
+
+                Console.Write("Fuel consumption (Liters/km): ");
+                double fuelConsumption = double.Parse(Console.ReadLine());
+
+                Console.Write("Current Consumption (L): ");
+                double currentFuel = double.Parse(Console.ReadLine());
+
+                if (option == 1) // Cargo Airplane
+                {
+                    string type = "Cargo";
+
+                    Console.WriteLine("Please enter the MaxLoad of the Cargo Airplane: "); 
+                    double maxLoad = double.Parse(Console.ReadLine()); 
+
+                    
+                    aircrafts.Add(new CargoAirplane(id, state, distance, speed, fuelCapacity, fuelConsumption, currentFuel, maxLoad));
+                    PrintTypesAircraft(); 
+
+                }
+                else if (option == 2) // Commercial Airplane
+                {
+                    string type = "Commercial"; 
+                    
+                    Console.WriteLine("Please enter the passenger quantity of the Commercial Airplane"); 
+                    int passengers = int.Parse(Console.ReadLine()); 
+
+                    aircrafts.Add(new CommercialAirplane(id, state, distance, speed, fuelCapacity, fuelConsumption, currentFuel, passengers));
+                    PrintTypesAircraft(); 
+                }
+                else if (option == 3) // Private Airplane 
+                {
+
+                    string type = "Private"; 
+
+                    Console.WriteLine("Please enter the name of the owner of the plane: "); 
+                    string owner = Console.ReadLine(); 
+
+                    aircrafts.Add(new PrivateAirplane(id, state, distance, speed, fuelCapacity, fuelConsumption, currentFuel, owner));
+                    PrintTypesAircraft(); 
+
+                }
+                else 
+                {
+
+                    Console.WriteLine("This option is not valid"); 
+                    PrintTypesAircraft(); // Returns the user to the menu 
+                }
+
+
+            }
+            catch (Exception ex0)
+            {
+                Console.WriteLine($"There was an error introducing the data, you will be returned to the menu"); 
+                PrintTypesAircraft(); 
+            }
+
+
+        }
+
+        public void PrintTypesAircraft()
+        {
+            Console.WriteLine("Please Select an aircraft you will like to introduce: ");
+            Console.WriteLine("_________________________________");
+            
+            Console.WriteLine("|-------------------------------|");
+            Console.WriteLine("| Choose an option              |");
+            Console.WriteLine("| 1. Cargo Airplane    |");
+            Console.WriteLine("| 2. Commercial Airplane      |");
+            Console.WriteLine("| 3. Private Airplane   |");
+            Console.WriteLine("| 4. Exit to Menu   |");
+            Console.WriteLine("|-------------------------------|");
+            
+            Console.WriteLine("|-------------------------------|");
+
+            Console.WriteLine("Introduce your option: ");
+            int option = int.Parse(Console.ReadLine()); 
+
+            
+
+            LoadAircraftManually(option); 
+        }
+
 
         public void LoadAircraftFromFile()
         {
@@ -150,12 +256,14 @@ namespace OOP
                             int passengers = int.Parse(fields[8]); // Passenger Capacity
                             // Instantation of new Commercial Airplane 
                             aircrafts.Add(new CommercialAirplane(id, state, distance, speed, fuelCapacity, fuelConsumption, currentFuel, passengers)); 
+                            PrintMenu(); 
                         }
                         else if (type == "Cargo") // If the airplane is 
                         {
                             double maxLoad = double.Parse(fields[8]); // Max cargo load
                             // Instantation of new Cargo Airplane 
                             aircrafts.Add(new CargoAirplane(id, state, distance, speed, fuelCapacity, fuelConsumption, currentFuel, maxLoad));
+                            PrintMenu(); 
                         }
                         else if (type == "Private") // If the airplane is private
                         {
@@ -163,6 +271,7 @@ namespace OOP
 
                             // Instantation of new Private Airplane 
                             aircrafts.Add(new PrivateAirplane(id, state, distance, speed, fuelCapacity, fuelConsumption, currentFuel, owner));
+                            PrintMenu(); 
                         }
                         else // If the type of airplane is not found
                         {
