@@ -86,5 +86,6 @@ Added the AdvancedTick method.
 
 Added the method to manually add Airplanes. 
 
+Made a test to make the ticks work for the Runway.
 
 
