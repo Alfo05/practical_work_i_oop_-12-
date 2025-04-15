@@ -80,5 +80,11 @@ Added the ShowStatus method in the Airport class.
 
 Fixed the ReleaseRunway Method in the Runway class. 
 
+### 15/04/2025 ### 
+
+Added the AdvancedTick method.
+
+Added the method to manually add Airplanes. 
+
 
 
