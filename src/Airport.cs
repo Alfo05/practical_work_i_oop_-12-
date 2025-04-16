@@ -411,7 +411,7 @@ namespace OOP
 
             foreach (var runway in runways)
             {
-                // ADD runway.AdvanceTick(); 
+                runway.AdvanceTick();  // Calls the advance tick method in the RunwayClass
             }
 
             ShowStatus(); 
