@@ -78,6 +78,8 @@ namespace OOP
                 {
                     // Code for starting the simulation manually
                     Console.WriteLine("Starts the simulation manually"); 
+
+                    StartManualSimulation(); 
                 }
                 else if (selection == 4)
                 {
@@ -306,6 +308,31 @@ namespace OOP
                 PrintMenu(); // Returns to the menu
             }
         }
+
+
+
+        public void StartManualSimulation()
+    {
+        bool control = true; // Control variable to control de loop
+
+        while (control) // The loop is working as the control variable is still true 
+        {
+            AdvanceTick(); // The simulation advaces a tick (15 minutes)
+
+            // Message for the user to keep on the loop or go back to the menu
+            Console.WriteLine("Press ENTER to continue or type 'menu' to return to main menu:");
+        
+            string input = Console.ReadLine(); 
+
+            if (input.ToLower() == "menu") // If the user writes menu
+            {
+                control = false; // We change the variable to exit the loop
+                PrintMenu(); // And we go back to the main menu
+            }
+            // Otherwise the loop will keep on being executed
+        }
+}
+
 
         public void ShowStatus()
         {
