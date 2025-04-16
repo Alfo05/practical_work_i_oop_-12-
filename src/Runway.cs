@@ -71,7 +71,24 @@ namespace OOP
             }
         }   
 
+            // Método que simula el paso de un tick en la pista
+        public void AdvanceTick() // Method which simulatoes the ticks in the runway
+        {
+            // We verify that the runway is occupied and their is an airplane in it
+            if (runwayStatus == RunwayStatus.Ocupied && CurrentAircraft != null) 
+            {
+                TicksToFree--; // We substrack a tick   
 
+                // We show to the user the ticks remaining 
+                Console.WriteLine($"Runway {id}: Ticks remaining for Aircraft {CurrentAircraft.id}: {TicksToFree}");
+
+                // If no ticks remain, we free the runway automatically
+                if (TicksToFree <= 0)
+                {
+                    ReleaseRunway(); // We call the release method to release the runway
+                }
+            }
+        }
 
 
 
