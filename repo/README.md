@@ -88,4 +88,16 @@ Added the method to manually add Airplanes.
 
 Made a test to make the ticks work for the Runway.
 
+### 16/04/2025 ### 
 
+Added the mehtod for adding new airplanes manually into the main menu. 
+
+Restored the program class.
+
+Fixed Airplane type from file field.
+
+Added the AdvanceTick method in the Runway class.
+
+Added the possibility of adding airplanes manually into the possible options of the main menu. 
+
+Added the call for the advancetick method in the runway class. 
