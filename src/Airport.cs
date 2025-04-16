@@ -245,7 +245,7 @@ namespace OOP
                         Aircraft.AircraftState state = Enum.Parse<Aircraft.AircraftState>(fields[1]); // State of the airplane
                         int distance = int.Parse(fields[2]); // Distance
                         int speed = int.Parse(fields[3]); // Speed
-                        string type = fields[5]; // Type of airplane 
+                        string type = fields[4]; // Type of airplane 
                         double fuelCapacity = double.Parse(fields[5]); // Total fuel capacity
                         double fuelConsumption = double.Parse(fields[6]); // Fuel Comsumption per Km 
                         double currentFuel = double.Parse(fields[7]); // Current fuel remaining 
