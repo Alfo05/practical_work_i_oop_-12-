@@ -101,3 +101,7 @@ Added the AdvanceTick method in the Runway class.
 Added the possibility of adding airplanes manually into the possible options of the main menu. 
 
 Added the call for the advancetick method in the runway class. 
+
+Added comments on the StartSimulattion Selection menu. 
+
+Minor changes made to improve code identation.
