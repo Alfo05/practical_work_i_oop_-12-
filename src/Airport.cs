@@ -79,7 +79,7 @@ namespace OOP
                     // Code for starting the simulation manually
                     Console.WriteLine("Starts the simulation manually"); 
 
-                    StartManualSimulation(); 
+                    StartManualSimulation(); // Start the manual simulation 
                 }
                 else if (selection == 4)
                 {
