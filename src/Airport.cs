@@ -71,7 +71,7 @@ namespace OOP
                     // Code for loading flights manually
                     Console.WriteLine("Load flights manually"); 
                     
-                   PrintTypesAircraft(); // Shows the user the options to add flights
+                    PrintTypesAircraft(); // Shows the user the options to add flights
 
                 }
                 else if (selection == 3)
