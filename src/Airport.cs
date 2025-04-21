@@ -120,83 +120,91 @@ namespace OOP
         {
             
 
-            try 
+            if (option == 1 || option == 2 || option == 3)
             {
+
+
+                try 
+                {
                 
-                Console.Write("Airplane ID: ");
-                string id = Console.ReadLine();
+                    Console.Write("Airplane ID: ");
+                    string id = Console.ReadLine();
 
-                Console.Write("Select a State (InFlight, Waiting, Landing, OnGround): ");
-                Aircraft.AircraftState state = Enum.Parse<Aircraft.AircraftState>(Console.ReadLine());
+                    Console.Write("Select a State (InFlight, Waiting, Landing, OnGround): ");
+                    Aircraft.AircraftState state = Enum.Parse<Aircraft.AircraftState>(Console.ReadLine());
 
-                Console.Write("Distance to the airport (km): ");
-                int distance = int.Parse(Console.ReadLine());
+                    Console.Write("Distance to the airport (km): ");
+                    int distance = int.Parse(Console.ReadLine());
 
-                Console.Write("Speed of the airplane (km/h): ");
-                int speed = int.Parse(Console.ReadLine());
+                    Console.Write("Speed of the airplane (km/h): ");
+                    int speed = int.Parse(Console.ReadLine());
 
-                Console.Write("Fuel Capacity (Liters): ");
-                double fuelCapacity = double.Parse(Console.ReadLine());
+                    Console.Write("Fuel Capacity (Liters): ");
+                    double fuelCapacity = double.Parse(Console.ReadLine());
 
-                Console.Write("Fuel consumption (Liters/km): ");
-                double fuelConsumption = double.Parse(Console.ReadLine());
+                    Console.Write("Fuel consumption (Liters/km): ");
+                    double fuelConsumption = double.Parse(Console.ReadLine());
 
-                Console.Write("Current Consumption (L): ");
-                double currentFuel = double.Parse(Console.ReadLine());
+                    Console.Write("Current Consumption (L): ");
+                    double currentFuel = double.Parse(Console.ReadLine());
 
-                if (option == 1) // Cargo Airplane
-                {
-                    string type = "Cargo";
+                    if (option == 1) // Cargo Airplane
+                    {
+                        string type = "Cargo";
 
-                    Console.WriteLine("Please enter the MaxLoad of the Cargo Airplane: "); 
-                    double maxLoad = double.Parse(Console.ReadLine()); 
+                        Console.WriteLine("Please enter the MaxLoad of the Cargo Airplane: "); 
+                        double maxLoad = double.Parse(Console.ReadLine()); 
 
                     
-                    aircrafts.Add(new CargoAirplane(id, state, distance, speed, fuelCapacity, fuelConsumption, currentFuel, maxLoad));
-                    PrintTypesAircraft(); 
+                        aircrafts.Add(new CargoAirplane(id, state, distance, speed, fuelCapacity, fuelConsumption, currentFuel, maxLoad));
+                        PrintTypesAircraft(); 
 
-                }
-                else if (option == 2) // Commercial Airplane
-                {
-                    string type = "Commercial"; 
+                    }
+                    else if (option == 2) // Commercial Airplane
+                    {
+                        string type = "Commercial"; 
                     
-                    Console.WriteLine("Please enter the passenger quantity of the Commercial Airplane"); 
-                    int passengers = int.Parse(Console.ReadLine()); 
+                        Console.WriteLine("Please enter the passenger quantity of the Commercial Airplane"); 
+                        int passengers = int.Parse(Console.ReadLine()); 
 
-                    aircrafts.Add(new CommercialAirplane(id, state, distance, speed, fuelCapacity, fuelConsumption, currentFuel, passengers));
+                        aircrafts.Add(new CommercialAirplane(id, state, distance, speed, fuelCapacity, fuelConsumption, currentFuel, passengers));
+                        PrintTypesAircraft(); 
+                    }   
+                    else if (option == 3) // Private Airplane 
+                    {
+
+                        string type = "Private"; 
+
+                        Console.WriteLine("Please enter the name of the owner of the plane: "); 
+                        string owner = Console.ReadLine(); 
+
+                        aircrafts.Add(new PrivateAirplane(id, state, distance, speed, fuelCapacity, fuelConsumption, currentFuel, owner));
+                        PrintTypesAircraft(); 
+
+                    }
+                }
+                catch (Exception ex0)
+                {
+                    Console.WriteLine($"There was an error introducing the data, you will be returned to the menu"); 
                     PrintTypesAircraft(); 
                 }
-                else if (option == 3) // Private Airplane 
-                {
-
-                    string type = "Private"; 
-
-                    Console.WriteLine("Please enter the name of the owner of the plane: "); 
-                    string owner = Console.ReadLine(); 
-
-                    aircrafts.Add(new PrivateAirplane(id, state, distance, speed, fuelCapacity, fuelConsumption, currentFuel, owner));
-                    PrintTypesAircraft(); 
-
-                }
-                else if (option == 4) // The user decides to return 
-                {
-                    Console.WriteLine("Returning to the Select Type of Airplane Menu"); // Tells the user we will return to the main menu
-                    PrintTypesAircraft(); 
-                }
-                else 
-                {
-
-                    Console.WriteLine("This option is not valid"); 
-                    PrintTypesAircraft(); // Returns the user to the menu 
-                }
-
 
             }
-            catch (Exception ex0)
+
+            if (option == 4)
             {
-                Console.WriteLine($"There was an error introducing the data, you will be returned to the menu"); 
-                PrintTypesAircraft(); 
+                PrintMenu(); // Return back to the main menu
+                
             }
+
+            else 
+            {
+                Console.WriteLine("The entered input is not valid, you will be redirected to the menu again"); 
+                PrintTypesAircraft(); 
+
+            }
+
+            
 
 
         }
