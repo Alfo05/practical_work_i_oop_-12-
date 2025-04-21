@@ -178,6 +178,11 @@ namespace OOP
                     PrintTypesAircraft(); 
 
                 }
+                else if (option == 4) // The user decides to return 
+                {
+                    Console.WriteLine("Returning to the Select Type of Airplane Menu"); // Tells the user we will return to the main menu
+                    PrintTypesAircraft(); 
+                }
                 else 
                 {
 
