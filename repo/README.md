@@ -105,3 +105,9 @@ Added the call for the advancetick method in the runway class.
 Added comments on the StartSimulattion Selection menu. 
 
 Minor changes made to improve code identation.
+
+### 21/04/2025
+
+Added a minor option in the Select Aircraft Type menu. 
+
+Fixed the sequence of the code in Airport Class.
