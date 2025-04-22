@@ -62,12 +62,12 @@ namespace OOP
         {
             if (runwayStatus == RunwayStatus.Free) // If the runway status is free
             {
-                return $"{id}: IS FREE";
+                return $"{id} IS FREE";
             }
 
             else // If the runway status is anything but free
             {
-                return $"{id}: Runway is ocupied by Aircraft {CurrentAircraft.id}, {TicksToFree} remaining";
+                return $"{id} is ocupied by Aircraft {CurrentAircraft.id}, {TicksToFree} ticksremaining";
             }
         }   
 
@@ -80,7 +80,7 @@ namespace OOP
                 TicksToFree--; // We substrack a tick   
 
                 // We show to the user the ticks remaining 
-                Console.WriteLine($"Runway {id}: Ticks remaining for Aircraft {CurrentAircraft.id}: {TicksToFree}");
+                Console.WriteLine($"{id}: Ticks remaining for Aircraft {CurrentAircraft.id}: {TicksToFree}");
 
                 // If no ticks remain, we free the runway automatically
                 if (TicksToFree <= 0)
