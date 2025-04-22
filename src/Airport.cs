@@ -8,7 +8,7 @@ namespace OOP
     public class Airport
     {
         private Runway[] runways;  // Runways array
-        private List<Aircraft> aircrafts; // Aircrafts lists 
+        private List<Aircraft> aircrafts; // Aircrafts list 
 
 
 
@@ -21,7 +21,7 @@ namespace OOP
             // Initialization of runways
             for (int i = 0; i < numberOfRunways; i++)
             {
-            runways[i] = new Runway($"Runway-{i + 1}"); // We only create the runways now, since we know there are a fixed number 
+                runways[i] = new Runway($"Runway-{i + 1}"); // We only create the runways now, since we know there are a fixed number 
             }
         }
 
@@ -116,16 +116,23 @@ namespace OOP
             
         }
 
-        public void LoadAircraftManually(int option)
+        public void LoadAircraftManually()
         {
-            
-
-            if (option == 1 || option == 2 || option == 3)
+            try 
             {
 
+                Console.WriteLine("Please Select an Option"); 
 
-                try 
+                string input = Console.ReadLine(); 
+
+                int option = int.Parse(input); 
+
+                if (option == 1 || option == 2 || option == 3)
                 {
+
+
+                
+                
                 
                     Console.Write("Airplane ID: ");
                     string id = Console.ReadLine();
@@ -145,7 +152,7 @@ namespace OOP
                     Console.Write("Fuel consumption (Liters/km): ");
                     double fuelConsumption = double.Parse(Console.ReadLine());
 
-                    Console.Write("Current Consumption (L): ");
+                    Console.Write("Current Fuel (L): ");
                     double currentFuel = double.Parse(Console.ReadLine());
 
                     if (option == 1) // Cargo Airplane
@@ -157,7 +164,9 @@ namespace OOP
 
                     
                         aircrafts.Add(new CargoAirplane(id, state, distance, speed, fuelCapacity, fuelConsumption, currentFuel, maxLoad));
-                        PrintTypesAircraft(); 
+                        ShowStatus(); 
+                        PrintMenu(); 
+                        
 
                     }
                     else if (option == 2) // Commercial Airplane
@@ -168,7 +177,9 @@ namespace OOP
                         int passengers = int.Parse(Console.ReadLine()); 
 
                         aircrafts.Add(new CommercialAirplane(id, state, distance, speed, fuelCapacity, fuelConsumption, currentFuel, passengers));
-                        PrintTypesAircraft(); 
+                        ShowStatus(); 
+                        PrintMenu(); 
+                        
                     }   
                     else if (option == 3) // Private Airplane 
                     {
@@ -178,35 +189,48 @@ namespace OOP
                         Console.WriteLine("Please enter the name of the owner of the plane: "); 
                         string owner = Console.ReadLine(); 
 
-                        aircrafts.Add(new PrivateAirplane(id, state, distance, speed, fuelCapacity, fuelConsumption, currentFuel, owner));
-                        PrintTypesAircraft(); 
+                        aircrafts.Add(new PrivateAirplane(id, state, distance, speed, fuelCapacity, fuelConsumption, currentFuel, owner)); 
+                        ShowStatus(); 
+                        PrintMenu(); 
 
                     }
-                }
-                catch (Exception ex0)
-                {
-                    Console.WriteLine($"There was an error introducing the data, you will be returned to the menu"); 
-                    PrintTypesAircraft(); 
-                }
-
-            }
-
-            if (option == 4)
-            {
-                PrintMenu(); // Return back to the main menu
                 
-            }
 
-            else 
-            {
-                Console.WriteLine("The entered input is not valid, you will be redirected to the menu again"); 
-                PrintTypesAircraft(); 
-
-            }
+                }
 
             
+                else if (option == 4)
+                {   
+                    Console.WriteLine("Exiting to the main menu....."); 
+                    PrintMenu();  
+                }
+            
+                else 
+                {
+                    Console.WriteLine("The entered input is not valid, you will be redirected to the main menu again"); 
+                    
+
+                }
 
 
+
+
+            }
+            catch (ArgumentNullException ex1)
+            {
+                Console.WriteLine("A variable can't be left blank"); 
+                PrintTypesAircraft(); 
+            }
+            catch (FormatException ex2)
+            {
+                Console.WriteLine("The input is not a number");
+                PrintTypesAircraft();  
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("An error occurred"); 
+                PrintTypesAircraft(); 
+            }
         }
 
         public void PrintTypesAircraft()
@@ -216,20 +240,13 @@ namespace OOP
             
             Console.WriteLine("|-------------------------------|");
             Console.WriteLine("| Choose an option              |");
-            Console.WriteLine("| 1. Cargo Airplane    |");
-            Console.WriteLine("| 2. Commercial Airplane      |");
-            Console.WriteLine("| 3. Private Airplane   |");
-            Console.WriteLine("| 4. Exit to Menu   |");
-            Console.WriteLine("|-------------------------------|");
-            
+            Console.WriteLine("| 1. Cargo Airplane             |");
+            Console.WriteLine("| 2. Commercial Airplane        |");
+            Console.WriteLine("| 3. Private Airplane           |");
+            Console.WriteLine("| 4. Exit to Menu               |");
             Console.WriteLine("|-------------------------------|");
 
-            Console.WriteLine("Introduce your option: ");
-            int option = int.Parse(Console.ReadLine()); 
-
-            
-
-            LoadAircraftManually(option); 
+            LoadAircraftManually(); 
         }
 
 
@@ -271,14 +288,16 @@ namespace OOP
                             int passengers = int.Parse(fields[8]); // Passenger Capacity
                             // Instantation of new Commercial Airplane 
                             aircrafts.Add(new CommercialAirplane(id, state, distance, speed, fuelCapacity, fuelConsumption, currentFuel, passengers)); 
-                            PrintMenu(); 
+                            
+                            
                         }
                         else if (type == "Cargo") // If the airplane is 
                         {
                             double maxLoad = double.Parse(fields[8]); // Max cargo load
                             // Instantation of new Cargo Airplane 
                             aircrafts.Add(new CargoAirplane(id, state, distance, speed, fuelCapacity, fuelConsumption, currentFuel, maxLoad));
-                            PrintMenu(); 
+                            
+                            
                         }
                         else if (type == "Private") // If the airplane is private
                         {
@@ -286,13 +305,16 @@ namespace OOP
 
                             // Instantation of new Private Airplane 
                             aircrafts.Add(new PrivateAirplane(id, state, distance, speed, fuelCapacity, fuelConsumption, currentFuel, owner));
-                            PrintMenu(); 
+                            
+                             
+                         
                         }
                         else // If the type of airplane is not found
                         {
                             // Message showing to the user that the airplane type was not found
-                            Console.WriteLine("Type of airplane could not be identified, you will be returned to the main menu"); 
-                            PrintMenu(); // Returns the user to the main menu
+                            Console.WriteLine("Type of airplane could not be identified"); 
+                            PrintMenu(); 
+                            
 
                         }
 
@@ -304,47 +326,49 @@ namespace OOP
             {
                 // Returns a message stating that the file with the specified path was not found
                 Console.WriteLine("File was not found, please try again, or check system code, you will be returned to the main menu");
-                PrintMenu(); // Returns to the main menu 
+                PrintTypesAircraft(); 
 
             }
             catch (FormatException)
             {
                 // Returns a message stating that there is an error in the Format of the variables
                 Console.WriteLine("A format error has been found, please try again, or check the system code, you will be returned to the main menu ");
-                PrintMenu(); // Returns to the main menu
+                PrintTypesAircraft(); 
 
             }
             catch (Exception e0)
             {
                 // Shows the error message to the user, of the error that has been found
                 Console.WriteLine($"An error was found: {e0.Message}, you will be returned to the main menu");
-                PrintMenu(); // Returns to the menu
+                PrintTypesAircraft(); 
             }
+            ShowStatus(); 
+            PrintMenu(); 
         }
 
 
 
         public void StartManualSimulation()
-    {
-        bool control = true; // Control variable to control de loop
-
-        while (control) // The loop is working as the control variable is still true 
         {
-            AdvanceTick(); // The simulation advaces a tick (15 minutes)
+            bool control = true; // Control variable to control de loop
 
-            // Message for the user to keep on the loop or go back to the menu
-            Console.WriteLine("Press ENTER to continue or type 'menu' to return to main menu:");
-        
-            string input = Console.ReadLine(); 
-
-            if (input.ToLower() == "menu") // If the user writes menu
+            while (control) // The loop is working as the control variable is still true 
             {
-                control = false; // We change the variable to exit the loop
-                PrintMenu(); // And we go back to the main menu
+                AdvanceTick(); // The simulation advaces a tick (15 minutes)
+
+                // Message for the user to keep on the loop or go back to the menu
+                Console.WriteLine("Press ENTER to continue or type 'menu' to return to main menu:");
+        
+                string input = Console.ReadLine(); 
+
+                if (input.ToLower() == "menu") // If the user writes menu
+                {
+                    control = false; // We change the variable to exit the loop
+                    PrintMenu(); // And we go back to the main menu
+                }
+                // Otherwise the loop will keep on being executed
             }
-            // Otherwise the loop will keep on being executed
-        }
-}
+        }       
 
 
         public void ShowStatus()
@@ -360,7 +384,7 @@ namespace OOP
             Console.WriteLine("\n========== AIRPLANES STATUS ==========");
             foreach (var aircraft in aircrafts)
             {
-                Console.WriteLine($"ID: {aircraft.id} | Estado: {aircraft.State} | Distancia: {aircraft.distance} km | Combustible: {aircraft.currentFuel} L");
+                Console.WriteLine($"ID: {aircraft.id} | State: {aircraft.State} | Distance: {aircraft.distance} km | Fuel Remaining: {aircraft.currentFuel} L");
             }
 
             Console.WriteLine("============================================\n");
@@ -374,7 +398,7 @@ namespace OOP
         {
             double tickHours = 0.25; // Every tick represents 15 minutes 
 
-            Console.WriteLine("\n========== ADVANCED SIMULATION ==========");
+            
 
             foreach (var aircraft in aircrafts) // For every airplane loaded
             {
