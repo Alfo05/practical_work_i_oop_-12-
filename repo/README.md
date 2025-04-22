@@ -111,3 +111,13 @@ Minor changes made to improve code identation.
 Added a minor option in the Select Aircraft Type menu. 
 
 Fixed the sequence of the code in Airport Class.
+
+### 22/04/2025 ###
+
+Added a column in the .csv file for current fuel. 
+
+Fixed an error of instation of the Airport, previously no runways were created. 
+
+Made a change to stop reapeting the same information when the airplanes landed. 
+
+Made an exit for an invalid option in the manual loading method. 
