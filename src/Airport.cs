@@ -208,7 +208,7 @@ namespace OOP
                 else 
                 {
                     Console.WriteLine("The entered input is not valid, you will be redirected to the main menu again"); 
-                    
+                    PrintMenu(); 
 
                 }
 
