@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Linq.Expressions;
 using System.Runtime.CompilerServices;
+using System.Security.Cryptography.X509Certificates;
 namespace OOP
 {
     public class Airport
@@ -103,12 +104,12 @@ namespace OOP
 
                 }
             }
-            catch (FormatException) // If the selection format is invalid
+            catch (FormatException ex1) // If the selection format is invalid
             {
                 Console.WriteLine("Invalid input. Please enter a valid number.");
                 PrintMenu(); 
             }
-            catch (ArgumentNullException) // If the selection is null
+            catch (ArgumentNullException ex2) // If the selection is null
             {
                 Console.WriteLine("Input can't be null. "); 
                 PrintMenu(); 
@@ -155,6 +156,9 @@ namespace OOP
                     Console.Write("Current Fuel (L): ");
                     double currentFuel = double.Parse(Console.ReadLine());
 
+                    
+
+
                     if (option == 1) // Cargo Airplane
                     {
                         string type = "Cargo";
@@ -164,8 +168,7 @@ namespace OOP
 
                     
                         aircrafts.Add(new CargoAirplane(id, state, distance, speed, fuelCapacity, fuelConsumption, currentFuel, maxLoad));
-                        ShowStatus(); 
-                        PrintMenu(); 
+                        
                         
 
                     }
@@ -177,8 +180,7 @@ namespace OOP
                         int passengers = int.Parse(Console.ReadLine()); 
 
                         aircrafts.Add(new CommercialAirplane(id, state, distance, speed, fuelCapacity, fuelConsumption, currentFuel, passengers));
-                        ShowStatus(); 
-                        PrintMenu(); 
+                         
                         
                     }   
                     else if (option == 3) // Private Airplane 
@@ -190,8 +192,7 @@ namespace OOP
                         string owner = Console.ReadLine(); 
 
                         aircrafts.Add(new PrivateAirplane(id, state, distance, speed, fuelCapacity, fuelConsumption, currentFuel, owner)); 
-                        ShowStatus(); 
-                        PrintMenu(); 
+                         
 
                     }
                 
@@ -199,16 +200,16 @@ namespace OOP
                 }
 
             
-                else if (option == 4)
+                else if (option == 4) // The user decides to exit the menu
                 {   
                     Console.WriteLine("Exiting to the main menu....."); 
                     PrintMenu();  
                 }
             
-                else 
+                else // The input is anything but the options labelled above
                 {
-                    Console.WriteLine("The entered input is not valid, you will be redirected to the main menu again"); 
-                    PrintMenu(); 
+                    Console.WriteLine("The entered input is not valid"); 
+                    PrintTypesAircraft(); 
 
                 }
 
@@ -216,21 +217,25 @@ namespace OOP
 
 
             }
-            catch (ArgumentNullException ex1)
+            catch (ArgumentNullException ex3)
             {
                 Console.WriteLine("A variable can't be left blank"); 
                 PrintTypesAircraft(); 
             }
-            catch (FormatException ex2)
+            catch (FormatException ex4)
             {
                 Console.WriteLine("The input is not a number");
                 PrintTypesAircraft();  
             }
-            catch (Exception ex3)
+            catch (Exception ex5)
             {
-                Console.WriteLine($"An error occurred: {ex3.Message}"); 
+                Console.WriteLine($"An error occurred: {ex5.Message}"); 
                 PrintTypesAircraft(); 
             }
+
+            DefineStateProperties(); 
+            ShowStatus(); 
+            PrintTypesAircraft(); 
         }
 
         public void PrintTypesAircraft()
@@ -282,6 +287,8 @@ namespace OOP
                         double fuelConsumption = double.Parse(fields[6]); // Fuel Comsumption per Km 
                         double currentFuel = double.Parse(fields[7]); // Current fuel remaining 
 
+
+
                         // We instantiate a specific object depening on the type of aircraft 
                         if (type == "Commercial")
                         {
@@ -322,30 +329,93 @@ namespace OOP
                 }
 
             }
-            catch (FileNotFoundException)
+            catch (FileNotFoundException ex6)
             {
                 // Returns a message stating that the file with the specified path was not found
                 Console.WriteLine("File was not found, please try again, or check system code, you will be returned to the main menu");
                 PrintTypesAircraft(); 
 
             }
-            catch (FormatException)
+            catch (FormatException ex7)
             {
                 // Returns a message stating that there is an error in the Format of the variables
                 Console.WriteLine("A format error has been found, please try again, or check the system code, you will be returned to the main menu ");
                 PrintTypesAircraft(); 
 
             }
-            catch (Exception e0)
+            catch (Exception ex8)
             {
                 // Shows the error message to the user, of the error that has been found
-                Console.WriteLine($"An error was found: {e0.Message}, you will be returned to the main menu");
+                Console.WriteLine($"An error was found: {ex8.Message}, you will be returned to the main menu");
                 PrintTypesAircraft(); 
             }
+
+
+            DefineStateProperties(); 
+
+            
             ShowStatus(); 
             PrintMenu(); 
         }
 
+        
+        public void DefineStateProperties()
+        {
+
+            foreach (var aircraft in aircrafts)
+            {
+                if (aircraft.State == Aircraft.AircraftState.Landing)
+                {
+                    bool alreadyAssigned = false; 
+                    int i = 0; 
+
+                    while (i < runways.Length && !alreadyAssigned)
+                    {
+                        if (runways[i].CurrentAircraft != null && runways[i].CurrentAircraft.id == aircraft.id)
+                        {
+                            alreadyAssigned = true; 
+                        }
+                        i++; 
+                    }
+
+
+                    if (!alreadyAssigned)
+                    {
+                        bool assinged = false; // Indication of the airplane being assigned a runway
+
+                        aircraft.distance = 0; // Landing means he is already at the airport
+
+                        foreach (var runway in runways)
+                        {
+                            // If has not being assigned and runway is free 
+                            if (!assinged && runway.runwayStatus == Runway.RunwayStatus.Free)
+                            {
+                                runway.RequestLanding(aircraft); // We attemp to assign a runway to the airplane
+                                assinged = true; // We should mark it as assigned to continue
+                            }
+                        
+                        }
+
+                        /* An airplane may have been assigned a runway, but if it is there is another plane in the same runway its meant to land, 
+                        he can abort the landing, and go back to waiting waiting for another clear runway */ 
+                    
+                        // If no runways are available 
+                        if (!assinged)
+                        {
+                            Console.WriteLine($"Flight {aircraft.id} is still waiting due to no runways being available" ); 
+                            aircraft.State = Aircraft.AircraftState.Waiting; // Changes the state of the airplane to waiting  
+                        }
+                    }
+
+                }
+                if (aircraft.State == Aircraft.AircraftState.OnGround)
+                {
+                    aircraft.distance = 0; 
+                    aircraft.speed = 0; 
+                }
+            }
+
+        }
 
 
         public void StartManualSimulation()
@@ -403,11 +473,11 @@ namespace OOP
                     }
                 }   
 
-            }
+            
 
-            foreach (var aircraft in aircrafts) // Again loads all of the airplanes 
-            {
-                if (aircraft.State == Aircraft.AircraftState.Waiting)
+            
+            
+                else if (aircraft.State == Aircraft.AircraftState.Waiting)
                 {
                     bool assinged = false; // Indication of the airplane being assigned a runway
 
@@ -419,6 +489,7 @@ namespace OOP
                             runway.RequestLanding(aircraft); // We attemp to assign a runway to the airplane
                             assinged = true; // We should mark it as assigned to continue
                         }
+                        
                     }
                     
                     // If no runways are available 
@@ -427,6 +498,7 @@ namespace OOP
                         Console.WriteLine($"Flight {aircraft.id} is still waiting due to no runways being available" ); 
                     }
                 }
+            
             }
 
             foreach (var runway in runways)
