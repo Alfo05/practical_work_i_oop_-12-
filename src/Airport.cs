@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Linq.Expressions;
 using System.Runtime.CompilerServices;
+using System.Runtime.Serialization;
 using System.Security.Cryptography.X509Certificates;
 namespace OOP
 {
@@ -137,6 +138,8 @@ namespace OOP
                 
                     Console.Write("Airplane ID: ");
                     string id = Console.ReadLine();
+
+                    CheckID(id); 
 
                     Console.Write("Select a State (InFlight, Waiting, Landing, OnGround): ");
                     Aircraft.AircraftState state = Enum.Parse<Aircraft.AircraftState>(Console.ReadLine());
@@ -279,6 +282,8 @@ namespace OOP
 
                         // We assign airplane data 
                         string id = fields[0]; // Airplane ID 
+                        CheckID(id); 
+
                         Aircraft.AircraftState state = Enum.Parse<Aircraft.AircraftState>(fields[1]); // State of the airplane
                         int distance = int.Parse(fields[2]); // Distance
                         int speed = int.Parse(fields[3]); // Speed
@@ -412,6 +417,21 @@ namespace OOP
                 {
                     aircraft.distance = 0; 
                     aircraft.speed = 0; 
+                }
+            }
+
+        }
+
+
+        public void CheckID(string id)
+        {
+            foreach (var aircraft in aircrafts)
+            {
+                if (aircraft.id == id)
+                {
+                    Console.WriteLine($"Airplane with ID: {id} already exists"); 
+                    PrintTypesAircraft(); 
+
                 }
             }
 
