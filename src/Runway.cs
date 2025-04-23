@@ -24,7 +24,7 @@ namespace OOP
             CurrentAircraft = null; // We start with runways with no planes
             TicksToFree = 3; // By default it takes 3 ticks to clear a runway 
         }
-        public void LandingAircraft(Aircraft aircraft)
+        public void RequestLanding(Aircraft aircraft)
         {
             if (runwayStatus == RunwayStatus.Free) // Check if the runway is free 
             {
@@ -37,7 +37,7 @@ namespace OOP
             }
             else 
             {
-                Console.WriteLine($"Runway number {id} is not free"); // We tell that the runway is in use by another plane
+                Console.WriteLine($"Runway number {id} is not free"); // We tell that the runway is being used by another plane
             }
         }
 
@@ -72,7 +72,7 @@ namespace OOP
         }   
 
             // Método que simula el paso de un tick en la pista
-        public void AdvanceTick() // Method which simulatoes the ticks in the runway
+        public void UpdateTick() // Method which simulatoes the ticks in the runway
         {
             // We verify that the runway is occupied and their is an airplane in it
             if (runwayStatus == RunwayStatus.Ocupied && CurrentAircraft != null) 
