@@ -79,7 +79,7 @@ namespace OOP
                     // Code for starting the simulation manually
                     Console.WriteLine("Starts the simulation manually"); 
 
-                    StartManualSimulation(); // Start the manual simulation 
+                    StartManualSimulation();   // Start the manual simulation 
                 }
                 else if (selection == 4)
                 {
@@ -226,9 +226,9 @@ namespace OOP
                 Console.WriteLine("The input is not a number");
                 PrintTypesAircraft();  
             }
-            catch (Exception)
+            catch (Exception ex3)
             {
-                Console.WriteLine("An error occurred"); 
+                Console.WriteLine($"An error occurred: {ex3.Message}"); 
                 PrintTypesAircraft(); 
             }
         }
@@ -350,24 +350,7 @@ namespace OOP
 
         public void StartManualSimulation()
         {
-            bool control = true; // Control variable to control de loop
-
-            while (control) // The loop is working as the control variable is still true 
-            {
-                AdvanceTick(); // The simulation advaces a tick (15 minutes)
-
-                // Message for the user to keep on the loop or go back to the menu
-                Console.WriteLine("Press ENTER to continue or type 'menu' to return to main menu:");
-        
-                string input = Console.ReadLine(); 
-
-                if (input.ToLower() == "menu") // If the user writes menu
-                {
-                    control = false; // We change the variable to exit the loop
-                    PrintMenu(); // And we go back to the main menu
-                }
-                // Otherwise the loop will keep on being executed
-            }
+            AdvanceTick(); 
         }       
 
 
@@ -415,7 +398,7 @@ namespace OOP
                     if (aircraft.distance == 0) // If the plane has reached the airport 
                     {
                         aircraft.State = Aircraft.AircraftState.Waiting; // Changes the state of the airplane to waiting 
-                        Console.WriteLine($"Flight {aircraft.id} reached the airport and is requesting a runway"); 
+                        Console.WriteLine($"Flight {aircraft.id} reached the airport and is waiting to be assigned a runway"); 
                     
                     }
                 }   
@@ -433,7 +416,7 @@ namespace OOP
                         // If has not being assigned and runway is free 
                         if (!assinged && runway.runwayStatus == Runway.RunwayStatus.Free)
                         {
-                            runway.LandingAircraft(aircraft); // We assign a runway to the airplane
+                            runway.RequestLanding(aircraft); // We attemp to assign a runway to the airplane
                             assinged = true; // We should mark it as assigned to continue
                         }
                     }
@@ -448,18 +431,26 @@ namespace OOP
 
             foreach (var runway in runways)
             {
-                runway.AdvanceTick();  // Calls the advance tick method in the RunwayClass
+                runway.UpdateTick();  // Calls the advance tick method in the RunwayClass
             }
 
-            ShowStatus(); 
-
+            ShowStatus(); // Shows the status of the runways and the airplanes 
+            
+            // Asks the user if we want to make another tick or wants to go back to the menu
             Console.WriteLine("Press anything to make another tick or type 'menu' to go back to the menu"); 
 
-            string input = Console.ReadLine(); 
-            if (input.ToLower() == "menu")
+            string input = Console.ReadLine();
+
+            // If the user wants to go back to the menu 
+            if (input.ToLower() == "menu") 
             {
                 PrintMenu(); 
             }
+            else // Otherwise
+            {
+                StartManualSimulation(); // We call startmanualsimulation
+            }
+            
             
         }
 
