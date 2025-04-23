@@ -238,21 +238,21 @@ namespace OOP
 
             DefineStateProperties(); 
             ShowStatus(); 
-            PrintTypesAircraft(); 
+            PrintMenu(); 
         }
 
         public void PrintTypesAircraft()
         {
             Console.WriteLine("Please Select an aircraft you will like to introduce: ");
-            Console.WriteLine("_________________________________");
+            Console.WriteLine("______________________________________");
             
-            Console.WriteLine("|-------------------------------|");
-            Console.WriteLine("| Choose an option              |");
-            Console.WriteLine("| 1. Cargo Airplane             |");
-            Console.WriteLine("| 2. Commercial Airplane        |");
-            Console.WriteLine("| 3. Private Airplane           |");
-            Console.WriteLine("| 4. Exit to Menu               |");
-            Console.WriteLine("|-------------------------------|");
+            Console.WriteLine("|-------------------------------------|");
+            Console.WriteLine("| Choose an option                    |");
+            Console.WriteLine("| 1. Cargo Airplane                   |");
+            Console.WriteLine("| 2. Commercial Airplane              |");
+            Console.WriteLine("| 3. Private Airplane                 |");
+            Console.WriteLine("| 4. Exit to Main Menu                |");
+            Console.WriteLine("|-------------------------------------|");
 
             LoadAircraftManually(); 
         }
@@ -263,10 +263,10 @@ namespace OOP
 
             try 
             {
-                string file_path = "flights_info.csv"; // Path for the file where airplanes will be stored 
+                string path = "flights_info.csv"; // Path for the file where airplanes will be stored 
 
                 // Opens the file with streamreader 
-                using (StreamReader sr = new StreamReader(file_path))
+                using (StreamReader sr = new StreamReader(path))
                 {
 
                     string line;
@@ -282,7 +282,7 @@ namespace OOP
 
                         // We assign airplane data 
                         string id = fields[0]; // Airplane ID 
-                        CheckID(id); 
+                        CheckID(id); // Checks if plane already exists
 
                         Aircraft.AircraftState state = Enum.Parse<Aircraft.AircraftState>(fields[1]); // State of the airplane
                         int distance = int.Parse(fields[2]); // Distance
@@ -364,39 +364,43 @@ namespace OOP
         }
 
         
-        public void DefineStateProperties()
+        public void DefineStateProperties() // For specific states will change some variables when loading airplanes
         {
 
-            foreach (var aircraft in aircrafts)
+            foreach (var aircraft in aircrafts) // Looks at all aircrafts
             {
-                if (aircraft.State == Aircraft.AircraftState.Landing)
+                if (aircraft.State == Aircraft.AircraftState.Landing) // If the aircraft is landing 
                 {
-                    bool alreadyAssigned = false; 
-                    int i = 0; 
+                    bool alreadyExists = false; // We suppose that the airplane does not exist in a runway
+                    int i = 0; // Counter for the loop
 
-                    while (i < runways.Length && !alreadyAssigned)
+                    while (i < runways.Length && !alreadyExists) // We loop around the runways
                     {
+                        // If the airplane is found in a certain runway
                         if (runways[i].CurrentAircraft != null && runways[i].CurrentAircraft.id == aircraft.id)
                         {
-                            alreadyAssigned = true; 
+                            alreadyExists = true; // Aircraft is already in a exists in a runway
                         }
-                        i++; 
+                        i++; // Checks in the other Runway(s)
+
+                        // If plane is not found then the bool keeps being false
                     }
 
 
-                    if (!alreadyAssigned)
+
+                    if (!alreadyExists) // If the assignation is false
                     {
-                        bool assinged = false; // Indication of the airplane being assigned a runway
+                        bool assignedRunway = false; // We create another bool
 
-                        aircraft.distance = 0; // Landing means he is already at the airport
+                        aircraft.distance = 0; // Landing state means he is already at the airport
 
-                        foreach (var runway in runways)
+                        foreach (var runway in runways) // Looks at all the airplanes
                         {
-                            // If has not being assigned and runway is free 
-                            if (!assinged && runway.runwayStatus == Runway.RunwayStatus.Free)
+                            // If not runway has been assigned and a runway is free 
+                            if (!assignedRunway && runway.runwayStatus == Runway.RunwayStatus.Free)
                             {
                                 runway.RequestLanding(aircraft); // We attemp to assign a runway to the airplane
-                                assinged = true; // We should mark it as assigned to continue
+                                assignedRunway = true; // We should mark it as assigned to continue
                             }
                         
                         }
@@ -405,7 +409,7 @@ namespace OOP
                         he can abort the landing, and go back to waiting waiting for another clear runway */ 
                     
                         // If no runways are available 
-                        if (!assinged)
+                        if (!assignedRunway)
                         {
                             Console.WriteLine($"Flight {aircraft.id} is still waiting due to no runways being available" ); 
                             aircraft.State = Aircraft.AircraftState.Waiting; // Changes the state of the airplane to waiting  
@@ -413,21 +417,21 @@ namespace OOP
                     }
 
                 }
-                if (aircraft.State == Aircraft.AircraftState.OnGround)
+                if (aircraft.State == Aircraft.AircraftState.OnGround) // If the aircraft is on ground 
                 {
-                    aircraft.distance = 0; 
-                    aircraft.speed = 0; 
+                    aircraft.distance = 0; // OnGround means the airport is on the Airport's premises
+                    aircraft.speed = 0;  // OnGround means he is park somewhere in the Airport
                 }
             }
 
         }
 
 
-        public void CheckID(string id)
+        public void CheckID(string id) // Checks if id just inputted already exists
         {
-            foreach (var aircraft in aircrafts)
+            foreach (var aircraft in aircrafts) // Looks for all airplanes 
             {
-                if (aircraft.id == id)
+                if (aircraft.id == id) // If the same id is found 
                 {
                     Console.WriteLine($"Airplane with ID: {id} already exists"); 
                     PrintTypesAircraft(); 
@@ -438,7 +442,7 @@ namespace OOP
         }
 
 
-        public void StartManualSimulation()
+        public void StartManualSimulation() // Control method for ticks
         {
             AdvanceTick(); 
         }       
