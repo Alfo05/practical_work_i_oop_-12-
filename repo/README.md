@@ -129,3 +129,13 @@ Renamed the method in Runway to RequestRunway.
 Changes in the StartManualSimulation method, control method. 
 
 Added some comments in the Airport class. 
+
+Added a method to control the behaviour of the code when airplanes are being loaded. 
+
+Improved the printing visual of the Airport Status (Airplanes and Runways). 
+
+Added a method to make sure there are no duplicate airplanes with the same ID. 
+
+Added comments on the Airport class. 
+
+Made the Aircraft Class an Abstract Class. 
