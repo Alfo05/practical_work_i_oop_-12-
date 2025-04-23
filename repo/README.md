@@ -139,3 +139,5 @@ Added a method to make sure there are no duplicate airplanes with the same ID.
 Added comments on the Airport class. 
 
 Made the Aircraft Class an Abstract Class. 
+
+Added an If statement for the Waiting State in the DefineStateProperties() method. 
