@@ -422,6 +422,10 @@ namespace OOP
                     aircraft.distance = 0; // OnGround means the airport is on the Airport's premises
                     aircraft.speed = 0;  // OnGround means he is park somewhere in the Airport
                 }
+                if (aircraft.State == Aircraft.AircraftState.Waiting) // If the aircraft is waiting for a runway
+                {
+                    aircraft.distance = 0; // Waiting means the airplane is by the airport
+                }
             }
 
         }
