@@ -427,20 +427,20 @@ namespace OOP
         public void ShowStatus()
         {
             // Shows the status of the Runways 
-            Console.WriteLine("\n========== RUNWAY STATUS ==========");
+            Console.WriteLine("\n================= RUNWAY STATUS =================");
             foreach (var runway in runways)
             {
                 Console.WriteLine(runway.GetStatus());
             }
 
             // Shows the status of the Airplanes
-            Console.WriteLine("\n========== AIRPLANES STATUS ==========");
+            Console.WriteLine("\n=============== AIRPLANES STATUS ================");
             foreach (var aircraft in aircrafts)
             {
-                Console.WriteLine($"ID: {aircraft.id} | State: {aircraft.State} | Distance: {aircraft.distance} km | Fuel Remaining: {aircraft.currentFuel} L");
+                Console.WriteLine($"ID: {aircraft.id}    | State: {aircraft.State}    | Distance:    {aircraft.distance} km    | Fuel Remaining: {aircraft.currentFuel} L");
             }
 
-            Console.WriteLine("============================================\n");
+            Console.WriteLine("=================================================\n");
         }
 
 
