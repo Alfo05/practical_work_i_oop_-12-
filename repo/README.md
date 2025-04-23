@@ -121,3 +121,11 @@ Fixed an error of instation of the Airport, previously no runways were created.
 Made a change to stop reapeting the same information when the airplanes landed. 
 
 Made an exit for an invalid option in the manual loading method. 
+
+### 23/04/2025 ###
+
+Renamed the method in Runway to RequestRunway. 
+
+Changes in the StartManualSimulation method, control method. 
+
+Added some comments in the Airport class. 
