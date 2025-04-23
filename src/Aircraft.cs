@@ -4,7 +4,7 @@ using System.Diagnostics.Contracts;
 namespace OOP
 {
     
-    public class Aircraft
+    public abstract class  Aircraft
     {
         public string id { get; set; } // Flight number 
         public AircraftState State { get; set; } // State of the Aircraft
