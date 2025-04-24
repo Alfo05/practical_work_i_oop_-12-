@@ -11,6 +11,20 @@
 
 - [1. COVER](#1-cover)
 - [2. TABLE OF CONTENTS](#2-table-of-contents)
+- [3. INTRODUCTION](#3-introduction)
+ - [3.1. NAMES OF THE GROUP MEMBERS](#31-names-of-the-group-members)
+ - [3.2. SUMMARY OF THE DOCUMENT](#32-summary-of-the-document)
+- [4. DESCRIPTION](#4-description)
+ - [4.1. PROPOSED SOLUTION](#41-proposed-solution)
+ - [4.2. CLASS DIAGRAM](#42-class-diagram)
+- [5. PROBLEMS & CHALLENGES](#5-problems--challenges)
+- [6. CONCLUSIONS](#6-conclusions)
+ - [6.1. LESSONS LEARNED](#61-lessons-learned)
+ - [6.2. EFFECTIVENESS](#62-effectiveness)
+ - [6.3. INSIGHTS GAINED](#63-insights-gained)
+- [7. IMPORTANT NOTES](#7-important-notes)
+- [8. TIMELINE OF DEVELOPMENT](#8-timeline-of-development) 
+
 
 
 ## 3. INTRODUCTION 
@@ -25,9 +39,31 @@
 
 
 
+## 4. DESCRIPTION 
+
+### 4.1 PROPOSED SOLUTION
+
+### 4.2 CLASS DIAGRAM 
 
 
-## TIMELINE ##
+
+## 5. PROBLEMS & CHALLENGES
+
+
+
+## 6. CONCLUSIONS 
+
+### 6.1 LESSONS LEARNED 
+
+### 6.2 EFFECTIVENESS 
+
+### 6.3 INSIGHTS GAINED 
+
+
+## 7. IMPORTANT NOTES 
+
+
+## 8. TIMELINE OF DEVELOPMENT 
 
 ### 31/03/2025 ###
 
