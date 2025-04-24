@@ -141,3 +141,11 @@ Added comments on the Airport class.
 Made the Aircraft Class an Abstract Class. 
 
 Added an If statement for the Waiting State in the DefineStateProperties() method. 
+
+### 24/04/2025 ### 
+
+Fixed some comments in Runway class. 
+
+Moved flights_info file to files folder. 
+
+Updated file path. 
