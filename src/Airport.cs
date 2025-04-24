@@ -399,7 +399,7 @@ namespace OOP
                             // If not runway has been assigned and a runway is free 
                             if (!assignedRunway && runway.runwayStatus == Runway.RunwayStatus.Free)
                             {
-                                runway.RequestLanding(aircraft); // We attemp to assign a runway to the airplane
+                                runway.RequestRunway(aircraft); // We attemp to assign a runway to the airplane
                                 assignedRunway = true; // We should mark it as assigned to continue
                             }
                         
@@ -448,12 +448,15 @@ namespace OOP
 
         public void StartManualSimulation() // Control method for ticks
         {
+            Console.Clear(); 
             AdvanceTick(); 
         }       
 
 
         public void ShowStatus()
         {
+
+            Console.Clear(); 
             // Shows the status of the Runways 
             Console.WriteLine("\n================= RUNWAY STATUS =================");
             foreach (var runway in runways)
@@ -514,7 +517,7 @@ namespace OOP
                         // If has not being assigned and runway is free 
                         if (!assinged && runway.runwayStatus == Runway.RunwayStatus.Free)
                         {
-                            runway.RequestLanding(aircraft); // We attemp to assign a runway to the airplane
+                            runway.RequestRunway(aircraft); // We attemp to assign a runway to the airplane
                             assinged = true; // We should mark it as assigned to continue
                         }
                         

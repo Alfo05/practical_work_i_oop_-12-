@@ -24,7 +24,7 @@ namespace OOP
             CurrentAircraft = null; // We start with runways with no planes
             TicksToFree = 3; // By default it takes 3 ticks to clear a runway 
         }
-        public void RequestLanding(Aircraft aircraft)
+        public void RequestRunway(Aircraft aircraft)
         {
             if (runwayStatus == RunwayStatus.Free) // Check if the runway is free 
             {
@@ -60,6 +60,7 @@ namespace OOP
 
         public string GetStatus()
         {
+            Console.Clear(); 
             if (runwayStatus == RunwayStatus.Free) // If the runway status is free
             {
                 return $"{id} IS FREE";
