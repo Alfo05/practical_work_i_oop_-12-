@@ -3,9 +3,9 @@
 
 ## 1. COVER 
 
-![Cover](../files/readme_files/COVER_OOP.png)
-
-
+<div align="center">
+  <img src="../files/readme_files/COVER_OOP.png" alt="README.md cover of the project" width="70%">
+</div>
 
 ## TIMELINE ##
 
