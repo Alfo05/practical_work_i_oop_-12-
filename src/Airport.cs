@@ -263,7 +263,7 @@ namespace OOP
 
             try 
             {
-                string path = "../../../files/flights_info.csv"; // Path for the file where airplanes file will be stored 
+                string path = "../../../../files/flights_info.csv"; // Path for the file where airplanes file will be stored 
 
                 // Opens the file with streamreader 
                 using (StreamReader sr = new StreamReader(path))
