@@ -74,7 +74,7 @@ namespace OOP
             // Método que simula el paso de un tick en la pista
         public void UpdateTick() // Method which simulatoes the ticks in the runway
         {
-            // We verify that the runway is occupied and their is an airplane in it
+            // We verify that the runway is occupied and there is an airplane on it
             if (runwayStatus == RunwayStatus.Ocupied && CurrentAircraft != null) 
             {
                 TicksToFree--; // We substrack a tick   
