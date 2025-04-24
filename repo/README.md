@@ -7,6 +7,12 @@
   <img src="../files/readme_files/COVER_OOP.png" alt="README.md cover of the project" width="70%">
 </div>
 
+## 2. TABLE OF CONTENTS 
+
+- [1. COVER](#1-cover)
+- [2. TABLE OF CONTENTS](#2-table-of-contents)
+
+
 ## TIMELINE ##
 
 ### 31/03/2025 ###
