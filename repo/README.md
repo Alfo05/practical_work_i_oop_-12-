@@ -13,6 +13,20 @@
 - [2. TABLE OF CONTENTS](#2-table-of-contents)
 
 
+## 3. INTRODUCTION 
+
+### 3.1 NAMES OF THE GROUP MEMBERS
+
+    Daniel Sama Clemente
+    Alfonso Morice Herrero
+    Juan Valvidia Conde 
+
+### 3.2 SUMMARY OF THE DOCUMENT 
+
+
+
+
+
 ## TIMELINE ##
 
 ### 31/03/2025 ###
