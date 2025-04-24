@@ -36,7 +36,7 @@ namespace OOP
             this.currentFuel = currentFuel;
         }
 
-        public virtual void ShowAirplaneStatus()
+        public virtual void ShowAirplaneStatus() // Show information about the aircraft
         {
             Console.WriteLine($"ID: {id} | State: {State} | Distance: {distance} km | Type: {type} | Fuel Remaining: {currentFuel} L");
         }

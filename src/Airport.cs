@@ -461,14 +461,14 @@ namespace OOP
             Console.WriteLine("\n================= RUNWAY STATUS =================");
             foreach (var runway in runways)
             {
-                Console.WriteLine(runway.GetStatus());
+                Console.WriteLine(runway.GetStatus()); // Shows the status of every runway
             }
 
             // Shows the status of the Airplanes
             Console.WriteLine("\n=============== AIRPLANES STATUS ================");
             foreach (var aircraft in aircrafts)
             {
-               aircraft.ShowAirplaneStatus(); 
+               aircraft.ShowAirplaneStatus(); // Shows the information of every airplane
             }
 
             Console.WriteLine("=================================================\n");
@@ -512,7 +512,7 @@ namespace OOP
                 {
                     bool assinged = false; // Indication of the airplane being assigned a runway
 
-                    foreach (var runway in runways)
+                    foreach (var runway in runways) // We look in every runway
                     {
                         // If has not being assigned and runway is free 
                         if (!assinged && runway.runwayStatus == Runway.RunwayStatus.Free)
@@ -532,7 +532,7 @@ namespace OOP
             
             }
 
-            foreach (var runway in runways)
+            foreach (var runway in runways) // We look in every runway
             {
                 runway.UpdateTick();  // Calls the advance tick method in the RunwayClass
             }
