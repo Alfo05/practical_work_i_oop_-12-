@@ -1,5 +1,12 @@
 # practical_work_i_oop_-12-
 
+
+## 1. COVER 
+
+![Cover](../files/readme_files/COVER_OOP.png)
+
+
+
 ## TIMELINE ##
 
 ### 31/03/2025 ###
