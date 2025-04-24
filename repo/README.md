@@ -63,6 +63,9 @@
 ## 7. IMPORTANT NOTES 
 
 
+It is possible that you see some files in the repository with the name of the repository being 6, this is because there was a problem with the group handling and its members and a new group had to be assigned and our 
+group number was changed to 12. The repository was created when we were the group number 6.
+
 ## 8. TIMELINE OF DEVELOPMENT 
 
 ### 31/03/2025 ###
