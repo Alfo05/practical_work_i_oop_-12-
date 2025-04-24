@@ -170,7 +170,7 @@ namespace OOP
                         double maxLoad = double.Parse(Console.ReadLine()); 
 
                     
-                        aircrafts.Add(new CargoAirplane(id, state, distance, speed, fuelCapacity, fuelConsumption, currentFuel, maxLoad));
+                        aircrafts.Add(new CargoAirplane(id, state, distance, speed, type, fuelCapacity, fuelConsumption, currentFuel, maxLoad));
                         
                         
 
@@ -182,7 +182,7 @@ namespace OOP
                         Console.WriteLine("Please enter the passenger quantity of the Commercial Airplane"); 
                         int passengers = int.Parse(Console.ReadLine()); 
 
-                        aircrafts.Add(new CommercialAirplane(id, state, distance, speed, fuelCapacity, fuelConsumption, currentFuel, passengers));
+                        aircrafts.Add(new CommercialAirplane(id, state, distance, speed, type, fuelCapacity, fuelConsumption, currentFuel, passengers));
                          
                         
                     }   
@@ -194,7 +194,7 @@ namespace OOP
                         Console.WriteLine("Please enter the name of the owner of the plane: "); 
                         string owner = Console.ReadLine(); 
 
-                        aircrafts.Add(new PrivateAirplane(id, state, distance, speed, fuelCapacity, fuelConsumption, currentFuel, owner)); 
+                        aircrafts.Add(new PrivateAirplane(id, state, distance, speed, type, fuelCapacity, fuelConsumption, currentFuel, owner)); 
                          
 
                     }
@@ -297,9 +297,9 @@ namespace OOP
                         // We instantiate a specific object depening on the type of aircraft 
                         if (type == "Commercial")
                         {
-                            int passengers = int.Parse(fields[8]); // Passenger Capacity
+                            int numPassengers = int.Parse(fields[8]); // Passenger Capacity
                             // Instantation of new Commercial Airplane 
-                            aircrafts.Add(new CommercialAirplane(id, state, distance, speed, fuelCapacity, fuelConsumption, currentFuel, passengers)); 
+                            aircrafts.Add(new CommercialAirplane(id, state, distance, speed, type, fuelCapacity, fuelConsumption, currentFuel, numPassengers)); 
                             
                             
                         }
@@ -307,7 +307,7 @@ namespace OOP
                         {
                             double maxLoad = double.Parse(fields[8]); // Max cargo load
                             // Instantation of new Cargo Airplane 
-                            aircrafts.Add(new CargoAirplane(id, state, distance, speed, fuelCapacity, fuelConsumption, currentFuel, maxLoad));
+                            aircrafts.Add(new CargoAirplane(id, state, distance, speed, type, fuelCapacity, fuelConsumption, currentFuel, maxLoad));
                             
                             
                         }
@@ -316,7 +316,7 @@ namespace OOP
                             string owner = fields[8]; // Owner of the private plane (a new variable with full name could be added)
 
                             // Instantation of new Private Airplane 
-                            aircrafts.Add(new PrivateAirplane(id, state, distance, speed, fuelCapacity, fuelConsumption, currentFuel, owner));
+                            aircrafts.Add(new PrivateAirplane(id, state, distance, speed, type, fuelCapacity, fuelConsumption, currentFuel, owner));
                             
                              
                          
@@ -465,7 +465,7 @@ namespace OOP
             Console.WriteLine("\n=============== AIRPLANES STATUS ================");
             foreach (var aircraft in aircrafts)
             {
-                Console.WriteLine($"ID: {aircraft.id}    | State: {aircraft.State}    | Distance:    {aircraft.distance} km    | Fuel Remaining: {aircraft.currentFuel} L");
+               aircraft.ShowAirplaneStatus(); 
             }
 
             Console.WriteLine("=================================================\n");

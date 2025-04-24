@@ -4,21 +4,27 @@ namespace OOP
 {
     public class CommercialAirplane : Aircraft 
     {
-        public int num_passangers = 0; // In unit of passengers, each passanger counts as one
+        public int numPassangers = 0; // In unit of passengers, each passanger counts as one
 
-        public CommercialAirplane(string id, AircraftState state, int distance, int speed, double fuelCapacity, double fuelConsumption, double currentFuel, int num_passangers) 
-        : base(id, state, distance, speed ,fuelCapacity, fuelConsumption, currentFuel)
+        public CommercialAirplane(string id, AircraftState state, int distance, int speed, string type, double fuelCapacity, double fuelConsumption, double currentFuel, int numPassangers) 
+        : base(id, state, distance, speed, type, fuelCapacity, fuelConsumption, currentFuel)
         {
             this.id = id; 
             this.State = state; 
             this.distance = distance; 
             this.speed = speed; 
+            this.type = type; 
             this.fuelCapacity = fuelCapacity; 
             this.fuelConsumption = fuelConsumption; 
             this.currentFuel = currentFuel; 
-            this.num_passangers = num_passangers; 
+            this.numPassangers = numPassangers; 
 
         }
+
+        public override void ShowAirplaneStatus()
+        {
+            Console.WriteLine($"ID: {id} | State: {State} | Distance: {distance} km | Type: {type} | Fuel Remaining: {currentFuel} L | Passenger Load: {numPassangers}");
+        }  
 
     }
 

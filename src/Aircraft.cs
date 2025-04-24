@@ -10,6 +10,8 @@ namespace OOP
         public AircraftState State { get; set; } // State of the Aircraft
         public int distance { get; set; } // In KM 
         public int speed { get; set; } // In KM/H 
+
+        public string type { get; set; } // Type of aircraft
         public double fuelCapacity { get; set; } // In Litres 
         public double fuelConsumption { get; set; } // In Liters/KM 
         public double currentFuel { get; set; } // In Litres
@@ -22,16 +24,23 @@ namespace OOP
         }
 
         // Constructor
-        public Aircraft(string id, AircraftState state, int distance, int speed, double fuelCapacity, double fuelConsumption, double currentFuel)
+        public Aircraft(string id, AircraftState state, int distance, int speed, string type, double fuelCapacity, double fuelConsumption, double currentFuel)
         {
             this.id = id;
             this.State = state; // We don't assign any state yet as we don't have any airplanes loaded 
             this.distance = distance;
             this.speed = speed;
+            this.type = type; 
             this.fuelCapacity = fuelCapacity;
             this.fuelConsumption = fuelConsumption;
             this.currentFuel = currentFuel;
         }
+
+        public virtual void ShowAirplaneStatus()
+        {
+            Console.WriteLine($"ID: {id} | State: {State} | Distance: {distance} km | Type: {type} | Fuel Remaining: {currentFuel} L");
+        }
+
 
     
     }
