@@ -145,7 +145,7 @@ We can also say that we have maybe gone a step over as we have thought and imple
 
 ### 6.3 INSIGHTS GAINED 
 
-As said before, insights we have learned is overall how to use the enums and how powerful and efficient they can be not only for being clear and simple, but also because they are easy to create and when programming how they can reduce time. 
+As said before, the insights we have learned is overall how to use the enums and how powerful and efficient they can be not only for being clear and simple, but also because they are easy to create and when programming how they can reduce time. 
 
 Another thing we could say is that as we were advancing with the planning and the creation of the project we have also realized how and where to implement the principles of OOP (Polymorphism, Abstraction, Encapsulation and Inheritance), we knew about inheritance but now we have seen where the others happens and why they happen.  
 
