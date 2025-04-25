@@ -311,3 +311,15 @@ Fixed typo in the file path in the Airport class.
 Added polymorphism in the Aircraft Class. 
 
 Added Console.Clear() for clarity. 
+
+Added comments to the Program class. 
+
+Applied the convenient name convention in Aircraft class and their subclasses. 
+
+Added the base.Print() in the override methods in the subclasses. 
+
+Defined units in the Console.Writelines().
+
+Moved the variable where tickHours was defined in the Runway class. 
+
+Changed naming of the classes and the files of the subclasses. 
