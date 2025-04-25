@@ -12,6 +12,8 @@ namespace OOP
         private Runway[] runways;  // Runways array
         private List<Aircraft> aircrafts; // Aircrafts list 
 
+        double tickHours = 0.25; // Every tick represents 15 minutes 
+
 
 
         public Airport(int numberOfRunways, int numberOfAircrafts)
@@ -480,10 +482,7 @@ namespace OOP
         
         public void AdvanceTick()
         {
-            double tickHours = 0.25; // Every tick represents 15 minutes 
-
-            
-
+           
             foreach (var aircraft in aircrafts) // For every airplane loaded
             {
                 if (aircraft.state == Aircraft.AircraftState.InFlight) // If there are airplanes in the air 
