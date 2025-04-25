@@ -38,7 +38,8 @@ namespace OOP
 
         public virtual void ShowAirplaneInfo() // Show information about the aircraft
         {
-            Console.WriteLine($"ID: {id} | State: {state} | Distance: {distance} km | Type: {type} | Fuel Remaining: {currentFuel} L");
+            
+            Console.Write($"ID: {id} | State: {state} | Distance: {distance} km | Type: {type} | Fuel Remaining: {currentFuel} L");
         }
 
 

@@ -23,7 +23,8 @@ namespace OOP
 
         public override void ShowAirplaneInfo() // Shows the information about the aircraft 
         {
-            Console.WriteLine($"ID: {id} | State: {state} | Distance: {distance} km | Type: {type} | Fuel Remaining: {currentFuel} L | Passenger Load: {numPassangers}");
+            base.ShowAirplaneInfo(); 
+            Console.WriteLine($" | Passenger Load: {numPassangers}");
         }  
 
     }
