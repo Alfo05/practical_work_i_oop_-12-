@@ -10,7 +10,7 @@ namespace OOP
         : base(id, state, distance, speed, type, fuelCapacity, fuelConsumption, currentFuel)
         {
             this.id = id; 
-            this.State = state; 
+            this.state = state; 
             this.distance = distance; 
             this.speed = speed; 
             this.type = type; 
@@ -23,7 +23,7 @@ namespace OOP
 
         public override void ShowAirplaneStatus() // Shows the information of the aircraft
         {
-            Console.WriteLine($"ID: {id} | State: {State} | Distance: {distance} km | Type: {type} | Fuel Remaining: {currentFuel} L | Owner: {owner}");
+            Console.WriteLine($"ID: {id} | State: {state} | Distance: {distance} km | Type: {type} | Fuel Remaining: {currentFuel} L | Owner: {owner}");
         }       
 
 

@@ -7,7 +7,7 @@ namespace OOP
     public abstract class  Aircraft
     {
         public string id { get; set; } // Flight number 
-        public AircraftState State { get; set; } // State of the Aircraft
+        public AircraftState state { get; set; } // State of the Aircraft
         public int distance { get; set; } // In KM 
         public int speed { get; set; } // In KM/H 
 
@@ -27,7 +27,7 @@ namespace OOP
         public Aircraft(string id, AircraftState state, int distance, int speed, string type, double fuelCapacity, double fuelConsumption, double currentFuel)
         {
             this.id = id;
-            this.State = state; // We don't assign any state yet as we don't have any airplanes loaded 
+            this.state = state; // We don't assign any state yet as we don't have any airplanes loaded 
             this.distance = distance;
             this.speed = speed;
             this.type = type; 
@@ -38,7 +38,7 @@ namespace OOP
 
         public virtual void ShowAirplaneStatus() // Show information about the aircraft
         {
-            Console.WriteLine($"ID: {id} | State: {State} | Distance: {distance} km | Type: {type} | Fuel Remaining: {currentFuel} L");
+            Console.WriteLine($"ID: {id} | State: {state} | Distance: {distance} km | Type: {type} | Fuel Remaining: {currentFuel} L");
         }
 
 
