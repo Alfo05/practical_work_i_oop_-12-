@@ -33,7 +33,7 @@ namespace OOP
                 CurrentAircraft = aircraft; // We assing the plane as landing 
                 TicksToFree = 3; // Reset the counter of ticks
                 Console.WriteLine($"Aircraft {aircraft.id} is landing on Runway {id}"); // We show the info 
-                aircraft.State = Aircraft.AircraftState.Landing; // We change the status of the plane to landing
+                aircraft.state = Aircraft.AircraftState.Landing; // We change the status of the plane to landing
             }
             else 
             {
@@ -46,7 +46,7 @@ namespace OOP
 
             if (CurrentAircraft != null)
             {
-                CurrentAircraft.State = Aircraft.AircraftState.OnGround; // We assign the plane as OnGroud 
+                CurrentAircraft.state = Aircraft.AircraftState.OnGround; // We assign the plane as OnGroud 
                  
                 Console.WriteLine($"Airplane {CurrentAircraft.id} has landed successfully"); // We show that the plane has landed
 

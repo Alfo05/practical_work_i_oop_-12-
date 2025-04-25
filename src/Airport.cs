@@ -369,7 +369,7 @@ namespace OOP
 
             foreach (var aircraft in aircrafts) // Looks at all aircrafts
             {
-                if (aircraft.State == Aircraft.AircraftState.Landing) // If the aircraft is landing 
+                if (aircraft.state == Aircraft.AircraftState.Landing) // If the aircraft is landing 
                 {
                     bool alreadyExists = false; // We suppose that the airplane does not exist in a runway
                     int i = 0; // Counter for the loop
@@ -412,17 +412,17 @@ namespace OOP
                         if (!assignedRunway)
                         {
                             Console.WriteLine($"Flight {aircraft.id} is still waiting due to no runways being available" ); 
-                            aircraft.State = Aircraft.AircraftState.Waiting; // Changes the state of the airplane to waiting  
+                            aircraft.state = Aircraft.AircraftState.Waiting; // Changes the state of the airplane to waiting  
                         }
                     }
 
                 }
-                if (aircraft.State == Aircraft.AircraftState.OnGround) // If the aircraft is on ground 
+                if (aircraft.state == Aircraft.AircraftState.OnGround) // If the aircraft is on ground 
                 {
                     aircraft.distance = 0; // OnGround means the airport is on the Airport's premises
                     aircraft.speed = 0;  // OnGround means he is park somewhere in the Airport
                 }
-                if (aircraft.State == Aircraft.AircraftState.Waiting) // If the aircraft is waiting for a runway
+                if (aircraft.state == Aircraft.AircraftState.Waiting) // If the aircraft is waiting for a runway
                 {
                     aircraft.distance = 0; // Waiting means the airplane is by the airport
                 }
@@ -486,7 +486,7 @@ namespace OOP
 
             foreach (var aircraft in aircrafts) // For every airplane loaded
             {
-                if (aircraft.State == Aircraft.AircraftState.InFlight) // If there are airplanes in the air 
+                if (aircraft.state == Aircraft.AircraftState.InFlight) // If there are airplanes in the air 
                 {
                     double distanceTravelled = aircraft.speed * tickHours; // Calculates the distance travelled 
                     double fuelUsed = distanceTravelled * aircraft.fuelConsumption; // Calculates the fuel used 
@@ -498,7 +498,7 @@ namespace OOP
 
                     if (aircraft.distance == 0) // If the plane has reached the airport 
                     {
-                        aircraft.State = Aircraft.AircraftState.Waiting; // Changes the state of the airplane to waiting 
+                        aircraft.state = Aircraft.AircraftState.Waiting; // Changes the state of the airplane to waiting 
                         Console.WriteLine($"Flight {aircraft.id} reached the airport and is waiting to be assigned a runway"); 
                     
                     }
@@ -508,7 +508,7 @@ namespace OOP
 
             
             
-                else if (aircraft.State == Aircraft.AircraftState.Waiting)
+                else if (aircraft.state == Aircraft.AircraftState.Waiting)
                 {
                     bool assinged = false; // Indication of the airplane being assigned a runway
 
