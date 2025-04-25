@@ -3,10 +3,10 @@ using System;
 namespace OOP 
 {
 
-    public class CargoAirplane : Aircraft 
+    public class Cargo : Aircraft 
     {
         public double maxLoad = 0; // In TONS (1000KG)
-        public CargoAirplane(string id, AircraftState state, int distance, int speed, string type, double fuelCapacity, double fuelConsumption, double currentFuel, double maxLoad) 
+        public Cargo(string id, AircraftState state, int distance, int speed, string type, double fuelCapacity, double fuelConsumption, double currentFuel, double maxLoad) 
         : base(id, state, distance, speed, type, fuelCapacity, fuelConsumption, currentFuel)
         {
             this.id = id; 

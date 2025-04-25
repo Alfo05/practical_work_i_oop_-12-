@@ -2,11 +2,11 @@ using System;
 
 namespace OOP 
 {
-    public class PrivateAirplane : Aircraft 
+    public class Private : Aircraft 
     {
         public string owner = ""; // Full name of the owner in a string
 
-        public PrivateAirplane(string id, AircraftState state, int distance, int speed, string type, double fuelCapacity, double fuelConsumption, double currentFuel, string owner) 
+        public Private(string id, AircraftState state, int distance, int speed, string type, double fuelCapacity, double fuelConsumption, double currentFuel, string owner) 
         : base(id, state, distance, speed, type, fuelCapacity, fuelConsumption, currentFuel)
         {
             this.id = id; 

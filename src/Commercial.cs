@@ -2,11 +2,11 @@ using System;
 
 namespace OOP 
 {
-    public class CommercialAirplane : Aircraft 
+    public class Commercial : Aircraft 
     {
         public int numPassangers = 0; // In unit of passengers, each passanger counts as one
 
-        public CommercialAirplane(string id, AircraftState state, int distance, int speed, string type, double fuelCapacity, double fuelConsumption, double currentFuel, int numPassangers) 
+        public Commercial(string id, AircraftState state, int distance, int speed, string type, double fuelCapacity, double fuelConsumption, double currentFuel, int numPassangers) 
         : base(id, state, distance, speed, type, fuelCapacity, fuelConsumption, currentFuel)
         {
             this.id = id; 
