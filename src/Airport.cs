@@ -166,7 +166,7 @@ namespace OOP
                     {
                         string type = "Cargo";
 
-                        Console.WriteLine("Please enter the MaxLoad of the Cargo Airplane: "); 
+                        Console.WriteLine("Please enter the MaxLoad (tons) of the Cargo Airplane: "); 
                         double maxLoad = double.Parse(Console.ReadLine()); 
 
                     
