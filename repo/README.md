@@ -48,7 +48,7 @@ This documents shows all of the information regarding on how using OOP principle
 The program has been developed into 7 classes (with the Program class), in which every class does something spefic. The classes in the program are as they follow: 
 
 
-**PROGRAM**: This is the entry point of the program, in which the airport in instantiatiated with the initial amount of runways the airport will have and the amount of planes there are in the airport. Then the program is taken to a method in the Airport class which displays a menu for the user. 
+**PROGRAM**: This is the entry point of the program, in which the airport is instantiatiated with the initial amount of runways the airport will have and the amount of planes there are in the airport. Then the program is taken to a method in the Airport class which displays a menu for the user. 
 
 **AIRPORT**: This is probably the most important class in the whole program as it instantiates, manages shows and loads aircrafts (either manually or from a file) checks their ID in each case to see if they are no planes with the same ID, instantiates the Runways as well as showing their current status, has all of the methods which interact with the user and their corresponding menus to be printed for the user to select various options of the simulation and also is in charge of advacing the ticks(unit of time) for all of the time the simulation is being executed. The attributes in this class are as they follow: 
 
@@ -80,7 +80,7 @@ public int distance -> Distance of an aircraft to the airport
 public int speed -> Speed of an aircraft
 public string type -> Type of an aircraft
 public double fuelCapacity -> Fuel Capacity of an aircraft 
-public double fuelConsumption -> Fuel Comsumption of an aircraft 
+public double fuelConsumption -> Fuel Consumption of an aircraft 
 public double currentFuel -> Current fuel of an aircraft
 
 
@@ -113,11 +113,11 @@ string owner -> The name of the owner of the Private Aircraft
 
 ## 5. PROBLEMS & CHALLENGES
 
-The creation of the repo is something is was a bit difficult given that first we needed to create the repository in GitHub as we didn't remember exactly how to make it directly with VS Code, then we cloned it to a special folder from where I created a new project in that folder from VS Code, then i pushed it again to make sure now we had a repo with a functioning program. Later the next part was creating the specific folders which also is quite counter-intuitive as the folders can't be black otherwise they are not recognised by git. 
+The creation of the repo is something that was a bit difficult given that first we needed to create the repository in GitHub as we didn't remember exactly how to make it directly with VS Code, then we cloned it to a special folder from where I created a new project in that folder from VS Code, then i pushed it again to make sure now we had a repo with a functioning program. Later the next part was creating the specific folders which also is quite counter-intuitive as the folders can't be black otherwise they are not recognised by git. 
 
-The enums was a new thing for us as we had had never seen it before, it thought it was somethinig to do with having to define attributes inside an attribute, or something similar to an array. Luckily we search online as saw that it was much simplier that it sounded, it is just like an attribute with certain possible values or string, like a bool but with more options. 
+The enums was a new thing for us as we had had never seen it before, it thought it was something to do with having to define attributes inside an attribute, or something similar to an array. Luckily we search online as saw that it was much simplier that it sounded, it is just like an attribute with certain possible values or string, like a bool but with more options. 
 
-The next thing that was a challenge was on how to assingn an aircraft from the List to a certain runway. This was probably the biggest challenge we faced, as so far we didn't remember on how to do this from a year prior, fortunately by searching online and going back through the slides we noticed that there was something called a Property which is able to store all of the properties of an object, so we defined a Property in the Runway class and we assigned to to an aircraft which was sent from the Airport class. That way a runway had a aircraft assigned when it was landing. 
+The next thing that was a challenge was on how to assingn an aircraft from the List to a certain runway. This was probably the biggest challenge we faced, as so far we didn't remember on how to do this from a year prior, fortunately by searching online and going back through the slides we noticed that there was something called a Property which is able to store all of the properties of an object, so we defined a Property in the Runway class and we assigned to an aircraft which was sent from the Airport class. That way a runway had a aircraft assigned when it was landing. 
 
 Finally, our last challenge, was on how to load from a file, the specific information from an aircraft and also depending on its type it needed to be instantiated in a specific type, naturally we remembered we did something similar 1 year ago when we also had to load information from a file and also we had to compare the types they were, so we went back an saw the syntax we used and based on that we modified and implement that syntax into our code.  
 
@@ -125,7 +125,7 @@ Finally, our last challenge, was on how to load from a file, the specific inform
 
 ### 6.1 LESSONS LEARNED 
 
-Once lesson that we have learned is how porwerfull the enums have been to do this project not only because it is a variable, which also makes it easier, but also because when using them in method they autodefine themselves when typing and they save a lot of time when programming and also they enhance clearness to both the user and the developer. 
+Once lesson that we have learned is how porwerfull the enums have been to do this project not only because it is a variable, which also makes it easier, but also because when using them in method in which they autodefine themselves when typing and they save a lot of time when programming and also they enhance clearness to both the user and the developer. 
 
 Another thing which we have learned is how efficient also the List tool, it is like creating a database but where multiple object of subclases can be stored there and later with a foreach loop can be reached, all of them without any problems or difficulties. 
 
@@ -244,7 +244,7 @@ Made a test to make the ticks work for the Runway.
 
 ### 16/04/2025 ### 
 
-Added the mehtod for adding new airplanes manually into the main menu. 
+Added the method for adding new airplanes manually into the main menu. 
 
 Restored the program class.
 
