@@ -17,6 +17,7 @@
 - [4. DESCRIPTION](#4-description)
  - [4.1. PROPOSED SOLUTION](#41-proposed-solution)
  - [4.2. CLASS DIAGRAM](#42-class-diagram)
+ - [4.3. DEVELOPMENT COSIDERATIONS](#43-development-cosiderations)
 - [5. PROBLEMS & CHALLENGES](#5-problems--challenges)
 - [6. CONCLUSIONS](#6-conclusions)
  - [6.1. LESSONS LEARNED](#61-lessons-learned)
@@ -45,9 +46,25 @@
 
 ### 4.2 CLASS DIAGRAM 
 
+### 4.3 DEVELOPMENT COSIDERATIONS 
 
+- The different considerations must be followed to develop the program:
+
+- The simulator must include al least 2 runways for the airport.
+
+- The program must implement comprehensive input validation to handle errors.
+
+- It is not allowed to use functions like Environment.Exit(0) for ending the program. 
+
+- It is not allowed to use break and continue statements in the loops. You should structure your loops and logic in a way that avoids their necessity, promoting clear and understandable code flow.
 
 ## 5. PROBLEMS & CHALLENGES
+
+Creating repo correctly 
+
+Enums 
+
+Load from File 
 
 
 
@@ -55,10 +72,15 @@
 
 ### 6.1 LESSONS LEARNED 
 
+Powerness of enums, and lists 
+
 ### 6.2 EFFECTIVENESS 
+
+
 
 ### 6.3 INSIGHTS GAINED 
 
+How to use enums
 
 ## 7. IMPORTANT NOTES 
 
