@@ -12,7 +12,7 @@ namespace OOP
             Console.WriteLine("Welcome to the AIRUFV management system"); 
 
             
-            Airport airport = new Airport(2,0); // Creates the airport, variables to be defined later 
+            Airport airport = new Airport(2,0); // Instantiates the Aiport; Number of Runways, Number of Aircrafts
             airport.PrintMenu(); // Prints menu options
 
 
