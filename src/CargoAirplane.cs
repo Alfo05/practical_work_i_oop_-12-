@@ -21,7 +21,7 @@ namespace OOP
 
         }
 
-        public override void ShowAirplaneStatus() // Shows the information about the aircraft
+        public override void ShowAirplaneInfo() // Shows the information about the aircraft
         {
             Console.WriteLine($"ID: {id} | State: {state} | Distance: {distance} km | Type: {type} | Fuel Remaining: {currentFuel} L | Max Load (tons): {maxLoad}");
         }  

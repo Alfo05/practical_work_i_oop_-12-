@@ -468,7 +468,7 @@ namespace OOP
             Console.WriteLine("\n=============== AIRPLANES STATUS ================");
             foreach (var aircraft in aircrafts)
             {
-               aircraft.ShowAirplaneStatus(); // Shows the information of every airplane
+               aircraft.ShowAirplaneInfo(); // Shows the information of every airplane
             }
 
             Console.WriteLine("=================================================\n");
