@@ -99,6 +99,11 @@ string owner -> The name of the owner of the Private Aircraft
 
 ### 4.2 CLASS DIAGRAM 
 
+
+<div align="center">
+  <img src="../files/readme_files/CLASS_DIAGRAM.png" alt="README.md image showing the class diagram" width="70%">
+</div>
+
 ### 4.3 DEVELOPMENT COSIDERATIONS 
 
 - The different considerations must be followed to develop the program:
