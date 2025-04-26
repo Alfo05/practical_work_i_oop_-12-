@@ -4,7 +4,7 @@
 ## 1. COVER 
 
 <div align="center">
-  <img src="../files/readme_files/COVER_OOP.png" alt="README.md cover of the project" width="70%">
+  <img src="../files/readme_files/COVER_OOP.png" alt="README.md cover of the project" width="95%">
 </div>
 
 ## 2. TABLE OF CONTENTS 
@@ -101,7 +101,7 @@ string owner -> The name of the owner of the Private Aircraft
 
 
 <div align="center">
-  <img src="../files/readme_files/CLASS_DIAGRAM.png" alt="README.md image showing the class diagram" width="70%">
+  <img src="../files/readme_files/CLASS_DIAGRAM.jpg" alt="README.md image showing the class diagram" width="95%">
 </div>
 
 ### 4.3 DEVELOPMENT COSIDERATIONS 
@@ -329,4 +329,10 @@ Moved the variable where tickHours was defined in the Runway class.
 
 Changed naming of the classes and the files of the subclasses. 
 
+
+### 26/04/2025 ### 
+
 Added the Class Diagram image. 
+
+Final Design of the DDD README.md file. 
+
