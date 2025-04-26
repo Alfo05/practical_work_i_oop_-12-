@@ -323,3 +323,5 @@ Defined units in the Console.Writelines().
 Moved the variable where tickHours was defined in the Runway class. 
 
 Changed naming of the classes and the files of the subclasses. 
+
+Added the Class Diagram image. 
